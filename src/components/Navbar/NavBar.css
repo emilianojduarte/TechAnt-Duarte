@@ -1,15 +1,15 @@
 .mainHeader{
     width: 100%;
     display: flex;
-    padding: 10px 25px;
+    padding: 0.5em 1em;
     box-shadow: 1px 5px 15px #81818129;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: #fff;
 }
 
 .mainHeader__brand{
-    color: #2196f3;
+    color: #9c27b0;
     font-size: 3rem;
     padding: 0.5em;
     text-shadow: none;
@@ -18,13 +18,13 @@
 }
 .mainHeader__brand:hover{
     color: inherit;
-    text-shadow: 0em 0em 4em #fafafa,
-    0em 0em 2em #fafafa,
-    0em 0em 1em #fafafa,
-    1px 1px 4px #fafafa,
-    0px 0px 8px #fafafa,
-    0px 0px 22px #fafafa,
-    0px 0px 32px #fafafa;
+    text-shadow: #0f0f0f,
+    0em 0em 2em #0f0f0f,
+    0em 0em 1em #0f0f0f,
+    1px 1px 4px #0f0f0f,
+    0px 0px 8px #0f0f0f,
+    0px 0px 22px #0f0f0f,
+    0px 0px 32px #000000;
 }
 
 ul.navbar{

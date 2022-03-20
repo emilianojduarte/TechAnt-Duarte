@@ -1,6 +1,8 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import './NavBar.css';
+import CartWidget from '../CartWidget/CartWidget';
+import PersonIcon from '@mui/icons-material/Person';
 
 function NavBar() {
     return(
@@ -12,11 +14,15 @@ function NavBar() {
                 <p className="mainHeader__brand">TechAnt</p>
             </div>
             <ul className="navbar">
-                <li><Button variant="outlined" color="primary">Categorías</Button></li>
-                <li><Button variant="outlined">Ofertas</Button></li>
-                <li><Button variant="outlined">Contacto</Button></li>
-                <li><Button variant="outlined">Carrito</Button></li>
-                <li><Button variant="outlined">Cuenta</Button></li>
+                <li><Button color="secondary">Categorías</Button></li>
+                <li><Button color="secondary">Ofertas</Button></li>
+                <li><Button color="secondary">Contacto</Button></li>
+                <li><CartWidget/></li>
+                <li>
+                    <Button color="secondary">
+                    <PersonIcon/>
+                    </Button>
+                </li>
             </ul>
         </header>
     )
