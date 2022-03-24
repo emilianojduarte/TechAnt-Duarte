@@ -17,7 +17,7 @@ function NavBar() {
                 <li><Button color="secondary">Categorías</Button></li>
                 <li><Button color="secondary">Ofertas</Button></li>
                 <li><Button color="secondary">Contacto</Button></li>
-                <li><CartWidget/></li>
+                <li><CartWidget contador={0}/></li>
                 <li>
                     <Button color="secondary">
                     <PersonIcon/>

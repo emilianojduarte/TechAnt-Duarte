@@ -3,7 +3,7 @@ import './ItemCount.css';
 import Button from '@mui/material/Button';
 
 const ItemCount = ({stock, initial}) => {
-    const [count, setCount] = useState(initial)
+    const [count, setCount] = useState(initial);
     const countPlus = () =>{
         if(count < stock){
             setCount(count + 1)
@@ -15,7 +15,7 @@ const ItemCount = ({stock, initial}) => {
         }
     }
     const onAdd = () => {
-        console.log(`Agregaste ${(count)} productos al carrito.`) 
+        console.log(`Agregaste ${count} productos al carrito.`);
     }
     return (
         <div>

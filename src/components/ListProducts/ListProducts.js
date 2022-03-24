@@ -1,7 +1,7 @@
 import React from "react";
 import Card from '../Cards/Card';
 
-const ListProducts = ({children}) =>{
+const ListProducts = () =>{
     let dataProduct = {
         titulo: 'Remera',
         talle: 'XL',
@@ -10,7 +10,6 @@ const ListProducts = ({children}) =>{
     }
     return(
         <div>
-            <h2>{children}</h2>
             <Card data ={dataProduct}/>
         </div>
     )

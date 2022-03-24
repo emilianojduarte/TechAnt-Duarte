@@ -3,7 +3,7 @@ import './Card.css';
 import ItemCount from '../ItemCount/ItemCount';
 
 
-function Card({data,}) {
+function Card({data}) {
     const {titulo, precio, talle, stock} = data;
     return(
         <div className="card-item">
