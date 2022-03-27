@@ -8,8 +8,6 @@ function ItemListContainer({greeting}){
             <h1> {greeting} </h1>
             <h2>Productos Destacados</h2>
             <ItemList/>
-            <h2>Pruductos en Oferta</h2>
-            <p>Acá van las cards o listado de productos de esta otra categoría</p>
         </div>
     )
 }
