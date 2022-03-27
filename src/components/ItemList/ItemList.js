@@ -119,19 +119,16 @@ const ItemList = () =>{
     const [products, setProducts] = useState([]);
     //Promesa para obtener los productos
     async function getProducts () {
-        try{ 
-            setTimeout(()=>{
-                return;
-            }, 2000)
-            return (mockProducts);
-        }
-        catch(error){
-            console.log("Error en los datos");
-        }
+        let promise = new Promise ((resolve, reject)=>{
+            setTimeout(() => {resolve (mockProducts)}, 2000);
+        })
+        let result = await promise;
+        return (result);
     }
     //Efecto de montaje para obteneter el listado de productos
     useEffect(()=>{
-        getProducts().then((dataproductos)=>{
+        getProducts()
+        .then((dataproductos)=>{
             setProducts(dataproductos)
         }).finally(()=>{
             console.log("Terminó la llamada correctamente")
