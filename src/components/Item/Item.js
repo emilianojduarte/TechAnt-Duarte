@@ -4,7 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 
 
 function Item({data}) {
-    const {url, price, stock, description} = data;
+    const {url, price, stock, description, detail} = data;
     return(
         <div className="cardItem">
             <img src={url} className="cardItem__img" alt="foto del producto"></img>
