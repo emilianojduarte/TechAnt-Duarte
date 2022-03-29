@@ -1,9 +1,11 @@
+//Componentes
 import React from "react";
-import Button from '@mui/material/Button';
-import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 import PersonIcon from '@mui/icons-material/Person';
-
+//estilos
+import './NavBar.css';
 function NavBar() {
     return(
         <header className="mainHeader">
@@ -14,6 +16,9 @@ function NavBar() {
                 <p className="mainHeader__brand">TechAnt</p>
             </div>
             <ul className="navbar">
+                <li><Button color="secondary">
+                    <Link to={'/'}>Home</Link>
+                </Button></li>
                 <li><Button color="secondary">Categorías</Button></li>
                 <li><Button color="secondary">Ofertas</Button></li>
                 <li><Button color="secondary">Contacto</Button></li>

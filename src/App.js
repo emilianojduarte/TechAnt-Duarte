@@ -1,16 +1,22 @@
 //Componentes
 import NavBar from './components/Navbar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//Pages
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 //Estilos
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <ItemListContainer greeting={"Bienvenidos a la tienda"}/>
-      <ItemDetailContainer/>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='*' element={<NotFound/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
