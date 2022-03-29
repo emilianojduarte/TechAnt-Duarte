@@ -129,11 +129,11 @@ const ItemList = () =>{
     //Estado para los productos
     const [products, setProducts] = useState([]);
     //Promesa para obtener los productos
-    async function getProducts () {
+    const getProducts = () => {
         let promise = new Promise ((resolve, reject)=>{
             setTimeout(() => {resolve (mockProducts)}, 2000);
         })
-        let result = await promise;
+        let result = promise;
         return (result);
     }
     //Efecto de montaje para obteneter el listado de productos
