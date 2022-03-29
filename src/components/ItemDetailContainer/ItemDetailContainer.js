@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './ItemDetailContainer.css';
-import ItemDetail from "../../ItemDetail/ItemDetail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 function ItemDetailContainer(){
     const mockItem = {

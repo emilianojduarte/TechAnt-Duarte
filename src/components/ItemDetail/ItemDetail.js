@@ -1,6 +1,6 @@
 import React from "react";
 import './ItemDetail.css';
-import ItemCount from "../components/ItemCount/ItemCount";
+import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail ({item}){
     const {url, price, stock, description, detail} = item;
