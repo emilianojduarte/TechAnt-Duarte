@@ -1,0 +1,210 @@
+/* -------------- Header y NavBar ---------------------*/
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.75em;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #0A1128;
+    padding: 0.5em 0em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.header__div nav{
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #FEFCFB;
+}
+/*---- menú desplegable 
+(pendiente de implementar bien)----*/
+.header__div nav ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.header__div nav ul li {
+    padding: 1.3em;
+}
+.header__div nav li {
+    display: inline-block;
+    position: relative;
+    padding-inline: 1em;
+}
+.header__div nav ul ul {
+    position: absolute;
+    display: none;
+}
+.header__div nav ul ul li {
+    display: block;
+}
+.header__div nav ul li:hover ul {
+    display: block;
+}
+.header__div nav {
+    background-color: #0A1128;
+    border-radius: 0.5em;
+    padding-left: 0;
+}
+.header__div a {
+    text-shadow: none;
+    transition-property: text-shadow;
+    transition-duration: 1s;
+}
+.header__div a:hover {
+    color: inherit;
+    text-shadow:0em 0em 4em #fafafa,
+                0em 0em 2em #fafafa,
+                0em 0em 1em #fafafa,
+                1px 1px 4px #fafafa,
+                0px 0px 8px #fafafa,
+                0px 0px 22px #fafafa,
+                0px 0px 32px #fafafa;
+}
+.brandname {
+    color: #FEFCFB;
+    font-size: 3rem;
+    padding: 0.5em;
+    text-shadow: none;
+    transition-property: text-shadow;
+    transition-duration: 1s;
+}
+.brandname :hover{
+    color: inherit;
+    text-shadow: 0em 0em 4em #fafafa,
+    0em 0em 2em #fafafa,
+    0em 0em 1em #fafafa,
+    1px 1px 4px #fafafa,
+    0px 0px 8px #fafafa,
+    0px 0px 22px #fafafa,
+    0px 0px 32px #fafafa;
+}
+ul.navbar{
+    list-style: none;
+    display: flex;
+}
+ul.navbar li{
+    margin-right: 15px;
+}
+.brandcontainer{
+    width: 80px;
+}
+.brandcontainer--logo{
+    width: 100%;
+    border-radius: 50%;
+}
+.badge{
+    font-size: smaller;
+    position: absolute;
+    top: 0.4em; 
+    left: 2.1em;
+}
+/* ----------- main section ----------*/
+h1{
+    font-size: 2rem;
+    text-align: center;
+    padding: 1em;
+}
+h2{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1em;
+}
+p{
+    font-size: 1rem;
+    text-align: center;
+    padding: 1em;
+}
+.mainItemListContainer{
+    padding: 1em;
+}
+/*---------- Cards ------------*/
+.cardsConteiner{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: auto;
+    align-content: stretch;
+    justify-content: space-around;
+    gap: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.cardItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+    max-width: 350px;
+    padding: 0em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    transition: all 350ms ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+}
+.cardItem__img {
+    height: 100%;
+    width: 100%;
+    max-width: 480px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+.cardItem:hover{
+    transform: scale(1.05);
+}
+.btnCounter{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ----------- Item Detail ---------- */
+.mainItemDetail{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: auto;
+    align-content: stretch;
+    justify-content: space-around;
+    gap: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.mainItemDetail__img{
+    height: 100%;
+    width: 100%;
+    max-width: 50%;
+    border-radius: 0.5em;
+}
+.mainItemDetail__details{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: auto;
+    align-content: stretch;
+    justify-content: space-around;
+    max-width: 50%;
+}
+/*-----------footer-----------*/
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 0.75em;
+    gap: 1em;
+    background-color: #0A1128;
+    width: 100%;
+}
+footer div {
+    text-align: center;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #FEFCFB;
+}
