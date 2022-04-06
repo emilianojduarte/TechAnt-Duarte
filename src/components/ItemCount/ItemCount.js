@@ -2,7 +2,7 @@
 import React,{useState} from "react";
 import Button from '@mui/material/Button';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, action}) => {
     const [count, setCount] = useState(initial);
     const countPlus = () =>{
         if(count < stock){
@@ -14,9 +14,6 @@ const ItemCount = ({stock, initial}) => {
             setCount(count - 1)
         }
     }
-    const onAdd = () => {
-        console.log(`Agregaste ${count} productos al carrito.`);
-    }
     return (
         <div>
             <div className="btnCounter">
@@ -24,7 +21,7 @@ const ItemCount = ({stock, initial}) => {
             <p>{count}</p>
             <Button onClick={countPlus}>+</Button>
             </div>
-            <Button onClick={onAdd}>Agregar al Carrito</Button>
+            <Button onClick={(e) => action(e, count)}>Agregar al Carrito</Button>
         </div>
         
     )

@@ -201,6 +201,7 @@ footer {
     gap: 1em;
     background-color: #0A1128;
     width: 100%;
+    margin-top: auto;
 }
 footer div {
     text-align: center;
