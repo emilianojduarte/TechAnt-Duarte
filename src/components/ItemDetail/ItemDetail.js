@@ -3,6 +3,8 @@ import React,{useEffect, useState} from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+//Estilos
+import './ItemDetail.css';
 
 function ItemDetail ({item}){
     //variables

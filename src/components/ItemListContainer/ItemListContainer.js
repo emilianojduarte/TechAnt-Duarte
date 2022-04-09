@@ -1,6 +1,8 @@
 //Componentes
 import React from "react";
 import ItemList from "../ItemList/ItemList";
+//Estilos
+import './ItemListContainer.css';
 
 function ItemListContainer(){
     return(

@@ -4,6 +4,8 @@ import Item from '../Item/Item';
 import mockProducts from "../../utils/mockProducts";
 import { nanoid } from 'nanoid';
 import { useParams } from "react-router-dom";
+//Estilos
+import './ItemList.css';
 
 const ItemList = () =>{
     const [products, setProducts] = useState([]);

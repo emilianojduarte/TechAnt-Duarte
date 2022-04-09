@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 import navPages from "../../utils/navPages";
 import { nanoid } from 'nanoid';
-
+//Estilos
+import './NavBar.css';
 
 function NavBar() {
     return(

@@ -1,5 +1,8 @@
 //Componentes
 import React from "react";
+//Estilos
+import './Footer.css';
+
 
 function Footer() {
     return(

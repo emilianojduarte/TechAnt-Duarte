@@ -2,6 +2,8 @@
 import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+//Estilos
+import './Item.css';
 
 function Item({data}) {
     const {url, price, stock, description, id} = data;
