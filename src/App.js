@@ -11,6 +11,9 @@ import ItemDetailPage from './pages/ItemDetailPage';
 import CategoryPage from './pages/CategoryPage';
 //Estilos
 import './App.css';
+//context
+import {ThemeProvider} from './context/ThemeContext';
+import {CartProvider} from './context/CartContext';
 
 
 
@@ -18,18 +21,23 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='*' element={<NotFound/>}/>
-          <Route path='/category' element={<CategoryPage/>}/>
-          <Route path='/category/:id' element={<ItemListContainer/>}/>
-          <Route path='/item/:id' element={<ItemDetailPage/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
+      <ThemeProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar/>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='*' element={<NotFound/>}/>
+              <Route path='/category' element={<CategoryPage/>}/>
+              <Route path='/category/:id' element={<ItemListContainer/>}/>
+              <Route path='/item/:id' element={<ItemDetailPage/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+            </Routes>
+            <Footer/>
+          </BrowserRouter>
+        </CartProvider>
+      </ThemeProvider>
+      
     </div>
   );
 }

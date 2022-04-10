@@ -1,28 +1,30 @@
 //Componentes
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useContext} from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import CartContext from "../../context/CartContext";
 //Estilos
 import './ItemDetail.css';
 
 function ItemDetail ({item}){
     //variables
     const {url, price, stock, description, detail} = item;
-    const [contador, setContador] = useState(0);
+    const [productQuantity, setProductQuantity] = useState(0);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
+    const {addProductToCart} = useContext(CartContext);
     //funciones
     const onAdd = (e, count) => {
-        if(!!e & contador<1){
-            setContador(count);
+        if(!!e & productQuantity<1){
+            setProductQuantity(count);
         }
     }
     useEffect(()=>{
-        if(contador>0){
+        if(productQuantity>0){
             setMostrarItemCount(false);
-            console.log("el valor de contador es:", contador);
+            addProductToCart(item, productQuantity);
         }
-    },[contador])
+    },[productQuantity])
     //return
     return(
         <div className="mainItemDetail">
@@ -40,7 +42,6 @@ function ItemDetail ({item}){
                             </Link>
                         )
                     }
-                    
                 </div>
         </div>
     )

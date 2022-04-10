@@ -39,7 +39,7 @@ const ItemList = () =>{
         <div className="cardsConteiner">
             {products.map((product)=>{
                 return(
-                    <Item data={product} key={nanoid()}/>
+                    <Item item={product} key={nanoid()}/>
                 )
             })}
         </div>

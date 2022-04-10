@@ -10,16 +10,20 @@ header{
     right: 0;
     left: 0;
     z-index: 10;
-    background-color: #0A1128;
-    padding: 0.5em 0em;
+    padding: 0em 0em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.header-light{
+    background-color: #FEFCFB;
+}
+.header-dark{
+    background-color: #0A1128;
 }
 .header__div nav{
     text-align: center;
     font-style: normal;
     font-weight: normal;
     font-size: 1.1rem;
-    color: #FEFCFB;
 }
 /*---- menú desplegable 
 (pendiente de implementar bien)----*/
@@ -46,9 +50,16 @@ header{
     display: block;
 }
 .header__div nav {
-    background-color: #0A1128;
     border-radius: 0.5em;
     padding-left: 0;
+}
+.nav-light{
+    background-color: #FEFCFB;
+    color:#0A1128
+}
+.nav-dark{
+    background-color: #0A1128;
+    color: #FEFCFB;
 }
 .header__div a {
     text-shadow: none;
@@ -66,12 +77,17 @@ header{
                 0px 0px 32px #fafafa;
 }
 .brandname {
-    color: #FEFCFB;
     font-size: 3rem;
     padding: 0.5em;
     text-shadow: none;
     transition-property: text-shadow;
     transition-duration: 1s;
+}
+.brandname-light{
+    color: black;
+}
+.brandname-dark{
+    color: #FEFCFB;
 }
 .brandname :hover{
     color: inherit;

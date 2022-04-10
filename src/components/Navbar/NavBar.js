@@ -1,16 +1,21 @@
 //Componentes
-import React from "react";
+import React,{useContext} from "react";
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 import navPages from "../../utils/navPages";
 import { nanoid } from 'nanoid';
+import ThemeSwitch from "./ThemeSwitch";
+import ThemeContext from "../../context/ThemeContext";
+import CartContext from "../../context/CartContext";
 //Estilos
 import './NavBar.css';
 
 function NavBar() {
+    const {lightTheme} = useContext(ThemeContext);
+    const {cartLength} = useContext(CartContext);
     return(
-        <header>
+        <header className={lightTheme ? 'header-light': 'header-dark'}>
             <Link to={'/'}>
             <div className="brandcontainer">
                 <img src="/assets/images/logo.png" className="brandcontainer--logo" alt="logo"/>
@@ -18,12 +23,12 @@ function NavBar() {
             </Link>
             <Link to={'/'}>
             <div>
-                <p className="brandname">TechAnt</p>
+                <p className={`brandname ${lightTheme?'brandname-light':'brandname-dark'}`}>TechAnt</p>
             </div>
             </Link>
             <div className="header__div">
-                <nav>
-                    <ul className="header__div">
+                <nav className={lightTheme?'nav-light':'nav-dark'}>
+                    <ul>
                         {navPages.map((page)=>{
                             return(
                                 <li key={nanoid()}>
@@ -31,7 +36,12 @@ function NavBar() {
                                 </li>
                             )
                         })}
-                        <li><CartWidget contador={0}/></li>
+                        <li>
+                            <ThemeSwitch/>
+                        </li>
+                        <li>
+                            <CartWidget contador={cartLength()}/>
+                        </li>
                         <li>
                             <PersonIcon/>
                         </li>
