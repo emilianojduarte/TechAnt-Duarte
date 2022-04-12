@@ -14,9 +14,6 @@ const ItemCount = ({stock, initial, action}) => {
             setCount(count - 1)
         }
     }
-    const addToCart = (e) =>{
-        e.stopPropagation()
-    }
     return (
         <div>
             <div className="btnCounter">

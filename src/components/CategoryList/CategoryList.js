@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 
 const CategoryList = () =>{
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     const getCatergories = () => {
         let promise = new Promise ((resolve, reject)=>{
@@ -16,19 +17,26 @@ const CategoryList = () =>{
     }
     //Efecto de montaje para obteneter el listado de categorias
     useEffect(()=>{
-        getCatergories()
-        .then((datacategories)=>{
+        getCatergories().then((datacategories)=>{
+            setLoading(false);
             setCategories(datacategories)
         })
     },[])
     //return JSX
     return(
         <div className="cardsConteiner">
-            {categories.map((category)=>{
+            {loading?(
+                <h2>Cargando...</h2>
+            ):(
+                <>
+                {categories.map((category)=>{
                 return(
                     <Category data={category} key={nanoid()}/>
                 )
             })}
+                </>
+            )
+            }
         </div>
     )
 }

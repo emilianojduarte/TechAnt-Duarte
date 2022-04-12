@@ -13,7 +13,7 @@ const CartProvider = ({children}) =>{
         if(indiceEncontrado === -1){
             console.log("no existe en el carrito, se agrega al array el producto: ", product)
             product.cantidad = productQuantity;
-            setCartProducts(cartProducts=>[...cartProducts, product]);
+            setCartProducts(cartProducts => [...cartProducts, product]);
         }else{//si no, valido que no se quiera agrega más de lo que hay en stock
             if (product.stock < (product.cantidad + productQuantity)){
                 console.log("se pide más de lo que hay en stock")
@@ -38,15 +38,20 @@ const CartProvider = ({children}) =>{
     }
     const restarUno = (id) => {
         //primero ubico el indice del producto dentro del array
+        console.log("entro en restarUno, con ID:", id)
         const indiceEncontrado = cartProducts.findIndex((producto)=>{
             return producto.id === id;
         })
         if(indiceEncontrado === -1){
+            console.log("restarUno. Indice no encontado.")
             return;
         }else{
+            console.log("restarUno. Indice encontrado")
             //para que reste solo hasta 0 y no aparezcan números negativos
             if (cartProducts[indiceEncontrado].cantidad>0){
+                console.log("restarUno. Indice encontrado. Hay cantidad para restar.")
                 cartProducts[indiceEncontrado].cantidad -= 1;
+                console.log("la cantidad de producto segun el indice encontrado",cartProducts[indiceEncontrado].cantidad)
             }
         }
     }
