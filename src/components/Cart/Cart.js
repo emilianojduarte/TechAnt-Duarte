@@ -1,5 +1,5 @@
 //Componentes
-import React,{useContext} from 'react';
+import React,{useContext, useEffect, useState} from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
@@ -9,20 +9,30 @@ import './Cart.css';
 
 
 function Cart () {
-    const {cartProducts, cartTotal, cartLength, restarUno, addProductToCart} = useContext(CartContext);
+    const {cartProducts, cartTotal, restarUno, addProductToCart} = useContext(CartContext);
+    const [hayProductos, setHayProductos] = useState(false);
+    const [totalDelCart, setTotalDelCart] = useState(cartTotal);
     //funciones
-    const carritoConProductos = () =>{
-        if(cartLength>0){
-            return true
-        }else{
-            return false
-        }
+    const handleOneLess = (id) =>{
+        restarUno(id);
+        setTotalDelCart(cartTotal);
     }
+    const handleOneMore = (product, uno) =>{
+        addProductToCart(product, uno);
+        setTotalDelCart(cartTotal);
+    }
+    useEffect(()=>{
+        if(totalDelCart >0){
+            setHayProductos(true)
+        }else{
+            setHayProductos(false)
+        }
+    },[totalDelCart])
     //return
     return(
         <div>
             <h1>Carrito de compras</h1>
-            {carritoConProductos?(
+            {hayProductos?(
                     <div className="cartConteiner">
                         {cartProducts.map((product)=>{
                             return(
@@ -34,9 +44,9 @@ function Cart () {
                                         <p>{product.description}</p>
                                         <p>Precio unitario: ${product.price}</p>
                                         <p>
-                                            <Button onClick={()=>{restarUno(product.id)}}>-</Button>
+                                            <Button onClick={()=>{handleOneLess(product.id)}}>-</Button>
                                             Cantidad: {product.cantidad}
-                                            <Button onClick={()=>{addProductToCart(product, 1)}}>+</Button>
+                                            <Button onClick={()=>{handleOneMore(product, 1)}}>+</Button>
                                         </p>
                                         <p>Precio por cantidad (subtotal): ${product.price*product.cantidad}</p>
                                     </div>
