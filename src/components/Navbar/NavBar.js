@@ -7,13 +7,11 @@ import navPages from "../../utils/navPages";
 import { nanoid } from 'nanoid';
 import ThemeSwitch from "./ThemeSwitch";
 import ThemeContext from "../../context/ThemeContext";
-import CartContext from "../../context/CartContext";
 //Estilos
 import './NavBar.css';
 
 function NavBar() {
     const {lightTheme} = useContext(ThemeContext);
-    const {cartLength} = useContext(CartContext);
     return(
         <header className={lightTheme ? 'header-light': 'header-dark'}>
             <Link to={'/'}>
@@ -40,7 +38,7 @@ function NavBar() {
                             <ThemeSwitch/>
                         </li>
                         <li>
-                            <CartWidget contador={cartLength()}/>
+                            <CartWidget/>
                         </li>
                         <li>
                             <PersonIcon/>

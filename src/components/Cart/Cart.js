@@ -9,7 +9,7 @@ import './Cart.css';
 
 
 function Cart () {
-    const {cartProducts, cartTotal, restarUno, addProductToCart} = useContext(CartContext);
+    const {cartProducts, cartTotal, restarUno, addProductToCart, removeItem, cleanCart} = useContext(CartContext);
     const [hayProductos, setHayProductos] = useState(false);
     const [totalDelCart, setTotalDelCart] = useState(cartTotal);
     //funciones
@@ -21,8 +21,17 @@ function Cart () {
         addProductToCart(product, uno);
         setTotalDelCart(cartTotal);
     }
+    const handleDeleteItem = (id) => {
+        removeItem(id);
+        setTotalDelCart(cartTotal);
+    }
+    const handleDeleteCart = () =>{
+        cleanCart();
+        setTotalDelCart(0);
+    }
+    //useEffect
     useEffect(()=>{
-        if(totalDelCart >0){
+        if(totalDelCart > 0){
             setHayProductos(true)
         }else{
             setHayProductos(false)
@@ -49,10 +58,16 @@ function Cart () {
                                             <Button onClick={()=>{handleOneMore(product, 1)}}>+</Button>
                                         </p>
                                         <p>Precio por cantidad (subtotal): ${product.price*product.cantidad}</p>
+                                        <p>
+                                            <Button onClick={()=>{handleDeleteItem(product.id)}}>Eliminar</Button>
+                                        </p>
                                     </div>
                                 </div>
                             )
                         })}
+                        <div>
+                            <Button onClick={()=>{handleDeleteCart()}}>Vaciar carrito</Button>
+                        </div>
                         <div>
                             <p>Total:{cartTotal()}</p>
                         </div>

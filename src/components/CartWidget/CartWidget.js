@@ -2,11 +2,11 @@
 import React from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-function CartWidget({contador}){
+function CartWidget(){
     return(
         <>
         <ShoppingCartIcon/>
-        <span className="badge">{contador}</span>
+        <span className="badge">0</span>
         </>
     )
 }
