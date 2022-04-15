@@ -14,12 +14,12 @@ const CartProvider = ({children}) =>{
         if(indiceEncontrado === -1){
             product.cantidad = productQuantity;
             setCartProducts(cartProducts => [...cartProducts, product]);
-            setCuantosProductos(cartCantProductos());
+            cartCantProductos();
         }else{//si no, valido que no se quiera agrega más de lo que hay en stock
             if (product.stock < (product.cantidad + productQuantity)){
             }else{//si da el stock, sumo
                 cartProducts[indiceEncontrado].cantidad += productQuantity;
-                setCuantosProductos(cartCantProductos());
+                cartCantProductos();
             }
         }
     }
@@ -41,7 +41,7 @@ const CartProvider = ({children}) =>{
         for(const producto of cartProducts){
             cantidad = cantidad + producto.cantidad;
         }
-        return cantidad
+        setCuantosProductos(cantidad);
     }
     const restarUno = (id) => {
         //primero ubico el indice del producto dentro del array
@@ -54,7 +54,7 @@ const CartProvider = ({children}) =>{
             //para que reste solo hasta 0 y no aparezcan números negativos
             if (cartProducts[indiceEncontrado].cantidad>1){
                 cartProducts[indiceEncontrado].cantidad -= 1;
-                setCuantosProductos(cartCantProductos());
+                cartCantProductos();
             }
         }
     }
@@ -69,7 +69,7 @@ const CartProvider = ({children}) =>{
     }
     const cleanCart = () => {
         setCartProducts([]);
-        setCuantosProductos(cartCantProductos());
+        cartCantProductos();
     }
     //data a exportar
     const data = {
