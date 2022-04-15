@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import mockProducts from "../../utils/mockProducts";
 
 function ItemDetailContainer({id}){
-    
+    const [loading, setLoading] = useState(true);
     //Estado para el producto
     const [item, setItem] = useState([]);
     //Promesa para obtener los productos
@@ -20,6 +20,7 @@ function ItemDetailContainer({id}){
     useEffect(()=>{
         getProducts()
         .then((dataList)=>{
+            setLoading(false);
             const encontrado = dataList.find(element => element.id == id)
             setItem(encontrado);
         })
@@ -27,7 +28,11 @@ function ItemDetailContainer({id}){
     return(
         <div className="mainItemDetailContainer">
             <h2>Productos Seleccionado (detalles)</h2>
-            <ItemDetail item={item}/>
+            {loading?(
+                <h2>Cargando...</h2>
+            ):(
+                <ItemDetail item={item}/>
+            )}
         </div>
     )
 }

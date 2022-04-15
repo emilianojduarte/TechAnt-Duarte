@@ -49,7 +49,7 @@ const CartProvider = ({children}) =>{
             return;
         }else{
             //para que reste solo hasta 0 y no aparezcan números negativos
-            if (cartProducts[indiceEncontrado].cantidad>0){
+            if (cartProducts[indiceEncontrado].cantidad>1){
                 cartProducts[indiceEncontrado].cantidad -= 1;
             }
         }
