@@ -8,10 +8,6 @@ import CartContext from "../../context/CartContext";
 
 function CartWidget(){
     const {cuantosProductos} = useContext(CartContext);
-    // const [counter, setCounter] = useState(0);
-    // useEffect(()=>{
-    //     setCounter(cuantosProductos) 
-    // },[cuantosProductos])
     return(
         <div>
             <Link to={'/cart'}>
