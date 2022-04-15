@@ -4,6 +4,7 @@ const CartContext = createContext();
 
 const CartProvider = ({children}) =>{
     const [cartProducts, setCartProducts] = useState([]);
+    const [cuantosProductos, setCuantosProductos] = useState();
     //funciones
     const addProductToCart = (product, productQuantity) =>{
         //reviso si ya existe el producto en el carrito
@@ -13,10 +14,12 @@ const CartProvider = ({children}) =>{
         if(indiceEncontrado === -1){
             product.cantidad = productQuantity;
             setCartProducts(cartProducts => [...cartProducts, product]);
+            setCuantosProductos(cartCantProductos());
         }else{//si no, valido que no se quiera agrega más de lo que hay en stock
             if (product.stock < (product.cantidad + productQuantity)){
             }else{//si da el stock, sumo
                 cartProducts[indiceEncontrado].cantidad += productQuantity;
+                setCuantosProductos(cartCantProductos());
             }
         }
     }
@@ -51,6 +54,7 @@ const CartProvider = ({children}) =>{
             //para que reste solo hasta 0 y no aparezcan números negativos
             if (cartProducts[indiceEncontrado].cantidad>1){
                 cartProducts[indiceEncontrado].cantidad -= 1;
+                setCuantosProductos(cartCantProductos());
             }
         }
     }
@@ -61,13 +65,16 @@ const CartProvider = ({children}) =>{
         })
         //luego elimino ese producto utilizando el indice encontrado, con splice
         cartProducts.splice(indiceEncontrado, 1);
+        setCuantosProductos(cartCantProductos());
     }
     const cleanCart = () => {
         setCartProducts([]);
+        setCuantosProductos(cartCantProductos());
     }
     //data a exportar
     const data = {
         cartProducts,
+        cuantosProductos,
         addProductToCart,
         cartCantProductos,
         cartLength,

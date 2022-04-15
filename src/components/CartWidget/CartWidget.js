@@ -7,13 +7,15 @@ import CartContext from "../../context/CartContext";
 
 
 function CartWidget(){
-    const {cartCantProductos} = useContext(CartContext);
+    const {cuantosProductos} = useContext(CartContext);
+    // const [counter, setCounter] = useState(0);
+    // useEffect(()=>{
+    //     setCounter(cuantosProductos) 
+    // },[cuantosProductos])
     return(
         <div>
-            {console.log("CartWidget. Entro en el render")}
-            {console.log("CartWidget. hayProductos:", cartCantProductos())}
             <Link to={'/cart'}>
-                    <Badge badgeContent={cartCantProductos()}>
+                    <Badge badgeContent={cuantosProductos}>
                         <ShoppingCartIcon/>
                     </Badge>
             </Link>
