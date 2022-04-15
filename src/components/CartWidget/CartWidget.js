@@ -1,37 +1,23 @@
 //Componentes
-import React,{useContext, useState, useEffect} from "react";
+import React,{useContext} from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CartContext from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import Badge from '@mui/material/Badge';
+import CartContext from "../../context/CartContext";
+
 
 function CartWidget(){
     const {cartCantProductos} = useContext(CartContext);
-    const [hayProductos, setHayProductos] = useState(false);
-    const [cantidadProductos, setCantidadProductos] = useState(0);
-    //useEffect
-    useEffect(()=>{
-        setCantidadProductos(cartCantProductos())
-        if(cantidadProductos > 0){
-            setHayProductos(true)
-        }else{
-            setHayProductos(false)
-        }
-    },)
-    //return
     return(
-            <div>
-                <Link to={'/cart'}>
-                    <ShoppingCartIcon/>
-                </Link>
-                {hayProductos?(
-                <>
-                    {console.log("se renderizo el cartWidget")}
-                    <span className="badge">{cantidadProductos}</span>
-                </>
-            ):(
-                <></>
-            )}
-            </div>
+        <div>
+            {console.log("CartWidget. Entro en el render")}
+            {console.log("CartWidget. hayProductos:", cartCantProductos())}
+            <Link to={'/cart'}>
+                    <Badge badgeContent={cartCantProductos()}>
+                        <ShoppingCartIcon/>
+                    </Badge>
+            </Link>
+        </div>
     )
 }
 
