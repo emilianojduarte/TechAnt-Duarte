@@ -13,12 +13,10 @@ const CartProvider = ({children}) =>{
         if(indiceEncontrado === -1){
             product.cantidad = productQuantity;
             setCartProducts(cartProducts => [...cartProducts, product]);
-            console.log("No existe, se agrega. Ahora el cart tiene: ", cartProducts)
         }else{//si no, valido que no se quiera agrega más de lo que hay en stock
             if (product.stock < (product.cantidad + productQuantity)){
             }else{//si da el stock, sumo
                 cartProducts[indiceEncontrado].cantidad += productQuantity;
-                console.log("se sumó 1. Ahora el cart tiene: ", cartProducts)
             }
         }
     }
@@ -53,7 +51,6 @@ const CartProvider = ({children}) =>{
             //para que reste solo hasta 0 y no aparezcan números negativos
             if (cartProducts[indiceEncontrado].cantidad>1){
                 cartProducts[indiceEncontrado].cantidad -= 1;
-                console.log("se restó 1")
             }
         }
     }
