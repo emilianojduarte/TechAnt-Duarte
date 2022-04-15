@@ -65,7 +65,7 @@ const CartProvider = ({children}) =>{
         })
         //luego elimino ese producto utilizando el indice encontrado, con splice
         cartProducts.splice(indiceEncontrado, 1);
-        setCuantosProductos(cartCantProductos());
+        cartCantProductos();
     }
     const cleanCart = () => {
         setCartProducts([]);
