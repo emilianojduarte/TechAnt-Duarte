@@ -10,6 +10,7 @@ import ThemeContext from "../../context/ThemeContext";
 //Estilos
 import './NavBar.css';
 
+
 function NavBar() {
     const {lightTheme} = useContext(ThemeContext);
     return(
@@ -40,7 +41,7 @@ function NavBar() {
                         <li>
                             <CartWidget/>
                         </li>
-                        <li>
+                        <li id="iconoUser">
                             <PersonIcon/>
                         </li>
                     </ul>

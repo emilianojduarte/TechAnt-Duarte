@@ -47,7 +47,7 @@ function Cart () {
                             return(
                                 <div className="cartConteiner__item" key={nanoid()}>
                                     <div className='cartConteiner__item--img'>
-                                        <img src={product.url} className="" alt="foto del producto"></img>
+                                        <img src={`/assets/images/${product.url}`} className="" alt="foto del producto"></img>
                                     </div>
                                     <div className='cartContiner__item__data'>
                                         <p>{product.description}</p>

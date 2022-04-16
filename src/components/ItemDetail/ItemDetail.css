@@ -13,8 +13,13 @@
 .mainItemDetail__img{
     height: 100%;
     width: 100%;
-    max-width: 50%;
     border-radius: 0.5em;
+}
+.mainItemDetail__img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5em;
+    overflow:hidden;
 }
 .mainItemDetail__details{
     display: flex;

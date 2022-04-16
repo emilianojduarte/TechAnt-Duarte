@@ -9,7 +9,6 @@ import './ItemDetail.css';
 
 function ItemDetail ({item}){
     //variables
-    const {url, price, stock, description, detail} = item;
     const [productQuantity, setProductQuantity] = useState(0);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
     const {addProductToCart} = useContext(CartContext);
@@ -29,14 +28,14 @@ function ItemDetail ({item}){
     return(
         <div className="mainItemDetail">
                 <div className="mainItemDetail__img">
-                    <img src={url} alt="foto del producto"></img>
+                    <img src={`/assets/images/${item.url}`} alt="foto del producto"></img>
                 </div>
                 <div className="mainItemDetail__details">
-                    <p>{description}</p>
-                    <p>Precio : $ {price}</p>
-                    <p>{detail}</p>
+                    <p>{item.description}</p>
+                    <p>Precio : $ {item.price}</p>
+                    <p>{item.detail}</p>
                     {mostrarItemCount ?(
-                        <ItemCount stock={stock} initial={1} action={onAdd}/>
+                        <ItemCount stock={item.stock} initial={1} action={onAdd}/>
                         ):( <Link to="/cart">
                                 <Button>Finalizar Compra</Button>
                             </Link>

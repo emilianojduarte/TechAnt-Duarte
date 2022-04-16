@@ -27,7 +27,7 @@ function Item({item}) {
     return(
         <div className="cardItem">
             <Link to={`/item/${id}`}>
-            <img src={url} className="cardItem__img" alt="foto del producto"></img>
+            <img src={`/assets/images/${url}`} className="cardItem__img" alt="foto del producto"></img>
             </Link>
             <p>Precio : $ {price}</p>
             <p>{description}</p>

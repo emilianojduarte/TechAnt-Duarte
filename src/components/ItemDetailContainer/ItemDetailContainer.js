@@ -1,30 +1,36 @@
 //Componentes
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import mockProducts from "../../utils/mockProducts";
+import { doc, getDoc } from "firebase/firestore";
+import database from "../../services/firebase";
+import { useParams, useNavigate } from 'react-router-dom';
 
-function ItemDetailContainer({id}){
+function ItemDetailContainer(){
+    //variables
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
-    //Estado para el producto
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState({});
     //Promesa para obtener los productos
-    const getProducts = () => {
-        let promise = new Promise ((resolve, reject)=>{
-            setTimeout(() => {resolve (mockProducts)}, 2000);
-        })
-        let result = promise;
-        return (result);
+    const getProducts = async() => {
+        const docRef = doc(database, 'Productos', id);
+        const docSnap = await getDoc(docRef);
+        if(docSnap.exists()){
+            let item = docSnap.data();
+            item.id = docSnap.id;
+            setItem(item);
+        }else{
+             //si no existe el producto, deriva al error 404
+            navigate('/404');
+        }
     }
     //Efecto de montaje para obtener obtener los productos y luego encontrar
     //el producto correcto con un find
     useEffect(()=>{
-        getProducts()
-        .then((dataList)=>{
+        getProducts().then(()=>{
             setLoading(false);
-            const encontrado = dataList.find(element => element.id == id)
-            setItem(encontrado);
         })
-    })
+    },[id])
     return(
         <div className="mainItemDetailContainer">
             <h2>Productos Seleccionado (detalles)</h2>

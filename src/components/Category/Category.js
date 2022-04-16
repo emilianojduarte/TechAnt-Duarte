@@ -7,7 +7,7 @@ function Category({data}) {
     return(
         <div className="cardItem">
             <Link to={`/category/${id}`}>
-                <img src={image} className="cardItem__img" alt="foto del producto"></img>
+                <img src={`/assets/images/${image}`} className="cardItem__img" alt="foto del producto"></img>
             </Link>
             <p>{title}</p>
         </div>
