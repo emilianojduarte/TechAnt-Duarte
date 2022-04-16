@@ -1,3 +1,17 @@
 ## Tienda en React JS
-Tienda realiza en React JS para CoderHouse, comision 31120
+
+Ecommerce realizado en React JS para CoderHouse, comision 31120
+
+
+### Autor
 Emiliano Duarte
+
+
+### Dependencias
+Se utilizó:
+
+ - React JS
+ - Material UI
+ - Firebase
+ - Nanoid
+ - React Router
