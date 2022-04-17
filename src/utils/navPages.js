@@ -9,7 +9,7 @@ const navPages = [
     },
     {
         title: 'Recomendados',
-        url: '/recomendados'
+        url: 'category/recomendados'
     },
     {
         title:'Nosotros',

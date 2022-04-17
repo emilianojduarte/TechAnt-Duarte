@@ -11,9 +11,6 @@ function HomePage (){
             <div>
                 <h2>otro placerholder</h2>
             </div>
-            <div>
-                <h2>redes sociales placerholder</h2>
-            </div>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
+import SocialNetworks from './components/SocialNetworks/SocialNetworks';
 //Pages
 import Home from './pages/HomePage';
 import NotFound from './pages/NotFoundPage';
@@ -31,6 +32,7 @@ function App() {
               <Route path='/item/:id' element={<ItemDetailPage/>}/>
               <Route path='/cart' element={<Cart/>}/>
             </Routes>
+            <SocialNetworks/>
             <Footer/>
           </BrowserRouter>
         </CartProvider>

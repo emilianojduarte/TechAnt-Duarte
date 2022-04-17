@@ -1,7 +1,8 @@
 //Componentes
 import React,{useState,useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+//Firebase
 import { collection, getDocs, query, where } from "firebase/firestore";
 import database from "../../services/firebase";
 //Estilos
@@ -11,9 +12,22 @@ function ItemListContainer(){
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
+    const navigate = useNavigate();
     const getProducts = async() => {
-        //query con filtro
-        const productsCollection = query(collection(database, "Productos"), where("type", "==", parseInt(id)))
+        const consulta = ()=> {
+            var respuesta;
+            if(!!parseInt(id)){
+                respuesta = query(collection(database, "Productos"), where("type", "==", parseInt(id)))
+            }else{
+                if(id === 'recomendados'){
+                    respuesta = query(collection(database, "Productos"), where("recomendado", "==", true))
+                }else{
+                    navigate('/404')
+                }
+            }
+            return respuesta
+        }
+        const productsCollection = consulta();
         const productsSnapshot = await getDocs(productsCollection);
         const productsList = productsSnapshot.docs.map((doc) => {
                 let product = doc.data();
@@ -26,7 +40,11 @@ function ItemListContainer(){
     useEffect(()=>{
         getProducts().then((resutladoFiltrado)=>{
             setLoading(false);
-            setProductosFiltrados(resutladoFiltrado);
+            if(resutladoFiltrado.length<1 || resutladoFiltrado===null){
+                navigate('/404');
+            }else{
+                setProductosFiltrados(resutladoFiltrado);
+            }
         })
     },[id])
     return(

@@ -1,10 +1,12 @@
 //Componentes
 import React,{useContext, useEffect, useState} from 'react';
-import CartContext from '../../context/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { nanoid } from 'nanoid';
 import ModalBase from '../Modal/ModalBase';
+//Context
+import CartContext from '../../context/CartContext';
+//Firebase
 import database from '../../services/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 //Estilos
@@ -12,17 +14,23 @@ import './Cart.css';
 
 
 function Cart () {
+//VARIABLES
+    //Contexto
     const {cartProducts, cartTotal, restarUno, addProductToCart, removeItem, cleanCart} = useContext(CartContext);
+    const navigate = useNavigate();
+    const [hayProductos, setHayProductos] = useState(false);
+    const [totalDelCart, setTotalDelCart] = useState(cartTotal);
+    const [openModal, setOpenModal] = useState(false);
+    const [finishedOrder, setFinishedOrder] = useState();
+    const [loadingOrder, setLoadingOrder] = useState(true);
     const [fechaDeHoy] = useState (() => {
         var fecha = new Date()
         var hoy = fecha.getFullYear() + '-' + (fecha.getMonth() + 1) + '-' + fecha.getDate();
         return hoy
     })
-    const [hayProductos, setHayProductos] = useState(false);
-    const [totalDelCart, setTotalDelCart] = useState(cartTotal);
-    const [openModal, setOpenModal] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
+        surname: '',
         phone: '',
         email: ''
     })
@@ -40,8 +48,7 @@ function Cart () {
             total: cartTotal()
         }
     );
-    const [finishedOrder, setFinishedOrder] = useState();
-    //funciones
+//FUNCIONES
     const handleOneLess = (id) =>{
         restarUno(id);
         setTotalDelCart(cartTotal);
@@ -65,6 +72,14 @@ function Cart () {
             [name]: value
         })
     }
+    const handleClose = () =>{
+        if(finishedOrder){
+            cleanCart();
+            navigate('/');
+        }else{
+            setOpenModal(false)
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         setOrder({...order, buyer: formData});
@@ -72,10 +87,12 @@ function Cart () {
         sendOrder(prevOrder);
     }
     const sendOrder = async(prevOrder) => {
+        setLoadingOrder(false);
         const orderFirebase = collection(database, 'Ordenes');
         const orderDoc = await addDoc(orderFirebase, prevOrder);
         console.log("orden generada: ", orderDoc.id)
         setFinishedOrder(orderDoc.id)
+        setLoadingOrder(true);
     }
     //useEffect
     useEffect(()=>{
@@ -134,56 +151,56 @@ function Cart () {
                     </div>
                 )
             }
-            <ModalBase handleClose={()=>setOpenModal(false)} open={openModal}>
+            <ModalBase handleClose={()=>handleClose()} open={openModal}>
                 {finishedOrder?(
-                    <div>
+                    <div className='postMessage'>
                         <h3>Su orden se generó correctamente</h3>
-                        <p>Número de Orden: {finishedOrder}</p>
-                        {/*
-                            Pendiente:
-                            Pulir estética
-                            Al cerrar esto debería de limpiar el cart y volver al home
-                        */}
+                        <p>Número de orden: {finishedOrder}</p>
+                        <p>Recuerde revisar su correo para seguir las indicaciones y coordinar la entrega.</p>
+                        <p>¡Muchas gracias por su compra!</p>
+                        <p>Presione fuera de esta ventana para volver al inicio.</p>
                     </div>
-                ):(
+                ):(loadingOrder?(
                     <div>
                         <h2>Formulario de Envio</h2>
                         <form onSubmit={handleSubmit}>
-                            {/* <div>
-                                <label for="inputNombre" class="form-label">Nombre/s</label>
-                                <input type="text" class="form-control" id="inputNombre"
-                                    placeholder="Ingrese su nombre o nombres" required/>
+                            <div>
+                                <label>Nombre/s</label>
+                                <input type="text" name='name' placeholder='Ingrese su nombre o nombres'
+                                    onChange={handleChange}
+                                    value={formData.name}
+                                />
                             </div>
                             <div>
-                                <label for="inputApellido" class="form-label">Apellido/s</label>
-                                <input type="text" class="form-control" id="inputApellido"
-                                    placeholder="Ingrese su apellido o apellidos" required/>
+                                <label>Apellido/s</label>
+                                <input type="text" name='surname' placeholder='Ingrese su apellido o apellidos'
+                                    onChange={handleChange}
+                                    value={formData.surname}
+                                />
                             </div>
                             <div>
-                                <label for="inputEdad" class="form-label">Edad</label>
-                                <input type="number" class="form-control" id="inputEdad" placeholder="Ingrese su edad" required/>
+                                <label>Teléfono</label>
+                                <input type="number" name='phone' placeholder='Ingrese su teléfono de contacto'
+                                    onChange={handleChange}
+                                    value={formData.phone}
+                                />
                             </div>
                             <div>
-                                <label for="inputDni" class="form-label">DNI</label>
-                                <input type="number" class="form-control" id="inputDni" placeholder="Ingrese su DNI" required/>
-                            </div> */}
-                            <input type="text" name='name' placeholder='Nombre'
-                                onChange={handleChange}
-                                value={formData.name}
-                            />
-                            <input type="number" name='phone' placeholder='Telefono'
-                                onChange={handleChange}
-                                value={formData.phone}
-                            />
-                            <input type="mail" name='email' placeholder='Mail'
-                                onChange={handleChange}
-                                value={formData.email}
-                            />
+                                <label>Email</label>
+                                <input type="mail" name='email' placeholder='Ingrese la dirección  de correo'
+                                    onChange={handleChange}
+                                    value={formData.email}
+                                />
+                            </div>
                             <div>
                                 <Button type="submit">Enviar</Button>
                             </div>
                         </form>
                     </div>
+                    
+                ):(
+                    <h2>Procesando solicitud...</h2>
+                )
                 )}
             </ModalBase>
         </div>

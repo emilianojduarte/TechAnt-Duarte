@@ -34,7 +34,22 @@ form{
     flex-wrap: nowrap;
     flex-direction: column;
     width: 100%;
+    padding: 1em;
 }
-form input{
+form *{
     width: -webkit-fill-available;
+}
+form div{
+    margin: 0.4em;
+}
+form div input{
+    height: 2em;
+}
+.postMessage{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1em;
+    gap: 1em;
 }
