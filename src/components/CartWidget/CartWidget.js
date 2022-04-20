@@ -7,11 +7,11 @@ import CartContext from "../../context/CartContext";
 
 
 function CartWidget(){
-    const {cuantosProductos} = useContext(CartContext);
+    const {cartCantProductos} = useContext(CartContext);
     return(
         <div>
             <Link to={'/cart'}>
-                    <Badge badgeContent={cuantosProductos}>
+                    <Badge badgeContent={cartCantProductos()}>
                         <ShoppingCartIcon/>
                     </Badge>
             </Link>

@@ -42,6 +42,7 @@ const CartProvider = ({children}) =>{
             cantidad = cantidad + producto.cantidad;
         }
         setCuantosProductos(cantidad);
+        return cantidad
     }
     const restarUno = (id) => {
         //primero ubico el indice del producto dentro del array
