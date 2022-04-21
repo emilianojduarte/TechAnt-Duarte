@@ -2,6 +2,7 @@
 import React,{useState,useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
 import { useNavigate, useParams } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
 //Firebase
 import { collection, getDocs, query, where } from "firebase/firestore";
 import database from "../../services/firebase";
@@ -51,7 +52,7 @@ function ItemListContainer(){
         <div className="mainItemListContainer">
             <h1>Listado de Productos</h1>
             {loading?(
-                <h2>Cargando...</h2>
+                <h2><CircularProgress sx={{ color: 'grey.800' }}/></h2>
             ):(
                 <ItemList productosFiltrados={productosFiltrados}/>
             )}

@@ -3,6 +3,7 @@ import React,{ useEffect, useState} from "react";
 import CategoryList from "../CategoryList/CategoryList";
 import { collection, getDocs } from "firebase/firestore";
 import database from "../../services/firebase";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function CategoryListContainer(){
     const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ function CategoryListContainer(){
             <h1>Categorías</h1>
             {
                 loading?(
-                    <h2>Cargando...</h2>
+                    <h2><CircularProgress sx={{ color: 'grey.800' }}/></h2>
                 ):(
                     <CategoryList categories={categories}/>
                 )
