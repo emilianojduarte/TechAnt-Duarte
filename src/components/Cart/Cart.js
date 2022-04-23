@@ -40,7 +40,7 @@ function Cart () {
             items: cartProducts.map((cartProduct)=>{
                 return{
                     id: cartProduct.id,
-                    title: cartProduct.description,
+                    title: cartProduct.title,
                     price: cartProduct.price
                 }
             }),
@@ -114,7 +114,7 @@ function Cart () {
                                         <img src={`/assets/images/${product.url}`} className="" alt="foto del producto"></img>
                                     </div>
                                     <div className='cartContiner__item__data'>
-                                        <p>{product.description}</p>
+                                        <p>{product.title}</p>
                                         <p>Precio unitario: ${product.price}</p>
                                         <p>
                                             <Button onClick={()=>{handleOneLess(product.id)}}>-</Button>
@@ -141,7 +141,7 @@ function Cart () {
                     </div>
                 ):(
                     <div>
-                        <p>Vaya parece que el carrito está está vacío</p>
+                        <p>Vaya parece que el carrito está está vacío.</p>
                         <p>Que te parece hacer click en el siguiente botón para ver algo?</p>
                         <p>
                             <Link to={'/'}>

@@ -34,7 +34,7 @@ function ItemDetailContainer(){
     },[id])
     return(
         <div className="mainItemDetailContainer">
-            <h2>Productos Seleccionado (detalles)</h2>
+            <h2>{item.title}</h2>
             {loading?(
                 <h2><CircularProgress sx={{ color: 'grey.800' }}/></h2>
             ):(
