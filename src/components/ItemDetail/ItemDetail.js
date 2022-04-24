@@ -31,9 +31,9 @@ function ItemDetail ({item}){
                     <img src={`/assets/images/${item.url}`} alt="foto del producto"></img>
                 </div>
                 <div className="mainItemDetail__details">
+                    <h2>Descripción</h2>
                     <p>{item.description}</p>
                     <p>Precio : $ {item.price}</p>
-                    <p>{item.detail}</p>
                     {mostrarItemCount ?(
                         <ItemCount stock={item.stock} initial={1} action={onAdd}/>
                         ):( <Link to="/cart">

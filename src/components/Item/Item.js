@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 import './Item.css';
 
 function Item({item}) {
-    const {url, price, stock, description, id} = item;
+    const {url, price, stock, title, id} = item;
     const [productQuantity, setProductQuantity] = useState(0);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
     const {addProductToCart} = useContext(CartContext);
@@ -30,7 +30,7 @@ function Item({item}) {
             <img src={`/assets/images/${url}`} className="cardItem__img" alt="foto del producto"></img>
             </Link>
             <p>Precio : $ {price}</p>
-            <p>{description}</p>
+            <p>{title}</p>
             {mostrarItemCount ?(
                 <ItemCount stock={stock} initial={1} action={onAdd}/>
                 ):( <Link to="/cart">
