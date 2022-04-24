@@ -8,6 +8,8 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
     "@mui/styled-engine-sc": "^5.4.2",
+    "@splidejs/react-splide": "^0.7.5",
+    "@splidejs/splide": "^4.0.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",

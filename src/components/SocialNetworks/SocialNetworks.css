@@ -17,3 +17,9 @@
     font-size: 1.3rem;
     color: #0A1128;
 }
+.redes .redes__div .redes__div--muiIcon{
+    position: relative;
+    vertical-align: middle;
+    bottom: -1px;
+    right: 7px;
+}
