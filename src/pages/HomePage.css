@@ -1,4 +1,11 @@
 .splide__slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+.splide__float{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: red;
+    z-index: 10;
 }

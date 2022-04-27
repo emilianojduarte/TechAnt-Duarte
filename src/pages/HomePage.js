@@ -15,8 +15,12 @@ function HomePage (){
                     autoplay: true,
                     type  : 'fade',
                     rewind: true,
+                    height: '95vh',
                 }}
             >
+                <div className="splide__float">
+                    <p>Catálogo de Productos</p>
+                </div>
                 <SplideSlide>
                     <img src="./assets/images/carrousel1.jpg" alt="carrousel 1"/>
                 </SplideSlide>
