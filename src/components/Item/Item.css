@@ -12,6 +12,9 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
 }
+.cardItem:hover{
+    transform: scale(1.05);
+}
 .cardItem__img {
     height: 100%;
     width: 100%;
@@ -19,8 +22,14 @@
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
 }
-.cardItem:hover{
-    transform: scale(1.05);
+.cardItem--price{
+    margin-top: 00.5em;
+    font-size: 2rem;
+    font-weight: 400;
+}
+.cardItem--title{
+    font-size: 1rem;
+    margin: 00.5em;
 }
 .btnCounter{
     display: inline-flex;

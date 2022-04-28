@@ -57,10 +57,10 @@ function NavBar() {
                 </Link>
                 <div className="header__div">
                     <nav className={lightTheme?'nav-light':'nav-dark'}>
-                        <ul class="nav-items">
-                            <li class="nav-item nav-item-dropdown">
-                                <a class="dropdown-trigger" href="#">Menu</a>
-                                <ul class="dropdown-menu">
+                        <ul className="nav-items">
+                            <li className="nav-item nav-item-dropdown">
+                                <a className="dropdown-trigger" href="#">Menu</a>
+                                <ul className="dropdown-menu">
                                     {navPages.map((page)=>{
                                         return(
                                             <li key={nanoid()} className="dropdown-menu-item">

@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import CartContext from "../../context/CartContext";
+import { nanoid } from 'nanoid';
 //Estilos
 import './ItemDetail.css';
 
@@ -18,6 +19,11 @@ function ItemDetail ({item}){
             setProductQuantity(count);
         }
     }
+    const splitDescription = (cadenaDescripcion) => {
+        const separador = '.';
+        var arrayDeCadenas = cadenaDescripcion.split(separador);
+        return arrayDeCadenas;
+    }
     useEffect(()=>{
         if(productQuantity>0){
             setMostrarItemCount(false);
@@ -31,9 +37,18 @@ function ItemDetail ({item}){
                     <img src={`/assets/images/${item.url}`} alt="foto del producto"></img>
                 </div>
                 <div className="mainItemDetail__details">
-                    <h2>Descripción</h2>
-                    <p>{item.description}</p>
-                    <p>Precio : $ {item.price}</p>
+                    <h2>Especificaciones</h2>
+                    <div className="mainItemDetail__details__text">
+                        {item.descripcion.map((oracion)=>{
+                            return(
+                                <div className="mainItemDetail__details__text--info" key={nanoid()}>
+                                    <span className="mainItemDetail__details__text--info--1">{oracion.dato}</span>
+                                    <span className="mainItemDetail__details__text--info--2">{oracion.detalle}</span>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="mainItemDetail__details--price">$ {item.price}</div>
                     {mostrarItemCount ?(
                         <ItemCount stock={item.stock} initial={1} action={onAdd}/>
                         ):( <Link to="/cart">

@@ -135,7 +135,6 @@ ul.navbar li{
     display: block;
     opacity: 1;
 }
-
 .dropdown-trigger {
     position: relative;
 }
@@ -151,7 +150,6 @@ ul.navbar li{
     top: -5px;
     right: -15px;
 }
-
 .dropdown-menu {
     background-color: #FEFCFB;
     border-radius: 0.5em;
