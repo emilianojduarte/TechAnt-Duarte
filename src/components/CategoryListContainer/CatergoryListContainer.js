@@ -36,7 +36,7 @@ function CategoryListContainer(){
                     <CategoryList categories={categories}/>
                 )
             }
-            </div>
+        </div>
     )
 }
 

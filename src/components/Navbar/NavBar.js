@@ -2,7 +2,7 @@
 import React,{useContext} from "react";
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from "react-router-dom";
-import PersonIcon from '@mui/icons-material/Person';
+import UserWidget from "../UserWidget/UserWidget";
 import navPages from "../../utils/navPages";
 import { nanoid } from 'nanoid';
 import ThemeSwitch from "./ThemeSwitch";
@@ -41,7 +41,7 @@ function NavBar() {
                             <CartWidget/>
                         </li>
                         <li id="iconoUser">
-                            <PersonIcon/>
+                            <UserWidget/>
                         </li>
                     </ul>
                 </nav>
@@ -74,7 +74,7 @@ function NavBar() {
                             <CartWidget/>
                         </li>
                         <li id="iconoUser">
-                            <PersonIcon/>
+                            <UserWidget/>
                         </li>
                     </ul>
                 </nav>
