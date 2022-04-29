@@ -25,28 +25,26 @@ function NavBar() {
                         <img src="/assets/images/logo.png" className="brandcontainer--logo" alt="logo"/>
                     </div>
                 </Link>
-                <div className="header__div">
-                    <nav className={lightTheme?'nav-light':'nav-dark'}>
-                        <ul>
-                            {navPages.map((page)=>{
-                                return(
-                                    <li key={nanoid()}>
-                                        <Link to={page.url}>{page.title}</Link>
-                                    </li>
-                                )
-                            })}
-                            <li>
-                                <ThemeSwitch/>
-                            </li>
-                            <li>
-                                <CartWidget/>
-                            </li>
-                            <li id="iconoUser">
-                                <PersonIcon/>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <nav className={lightTheme?'nav-light':'nav-dark'}>
+                    <ul>
+                        <li>
+                            <ThemeSwitch/>
+                        </li>
+                        {navPages.map((page)=>{
+                            return(
+                                <li key={nanoid()}>
+                                    <Link to={page.url}>{page.title}</Link>
+                                </li>
+                            )
+                        })}
+                        <li>
+                            <CartWidget/>
+                        </li>
+                        <li id="iconoUser">
+                            <PersonIcon/>
+                        </li>
+                    </ul>
+                </nav>
         </header>
         ):(
             <header className={lightTheme ? 'header-light': 'header-dark'}>
@@ -55,33 +53,31 @@ function NavBar() {
                         <img src="/assets/images/logo.png" className="brandcontainer--logo" alt="logo"/>
                     </div>
                 </Link>
-                <div className="header__div">
-                    <nav className={lightTheme?'nav-light':'nav-dark'}>
-                        <ul className="nav-items">
-                            <li className="nav-item nav-item-dropdown">
-                                <a className="dropdown-trigger" href="#">Menu</a>
-                                <ul className="dropdown-menu">
-                                    {navPages.map((page)=>{
-                                        return(
-                                            <li key={nanoid()} className="dropdown-menu-item">
-                                                <Link to={page.url}>{page.title}</Link>
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
-                            </li>
-                            <li>
-                                <ThemeSwitch/>
-                            </li>
-                            <li>
-                                <CartWidget/>
-                            </li>
-                            <li id="iconoUser">
-                                <PersonIcon/>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <nav className={lightTheme?'nav-light':'nav-dark'}>
+                    <ul className="nav-items">
+                        <li>
+                            <ThemeSwitch/>
+                        </li>
+                        <li className="nav-item nav-item-dropdown">
+                            <a className="dropdown-trigger" href="#">Menu</a>
+                            <ul className="dropdown-menu">
+                                {navPages.map((page)=>{
+                                    return(
+                                        <li key={nanoid()} className="dropdown-menu-item">
+                                            <Link to={page.url}>{page.title}</Link>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </li>
+                        <li>
+                            <CartWidget/>
+                        </li>
+                        <li id="iconoUser">
+                            <PersonIcon/>
+                        </li>
+                    </ul>
+                </nav>
             </header>
         )}
         </>
