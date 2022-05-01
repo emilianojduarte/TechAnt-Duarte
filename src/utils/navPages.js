@@ -13,11 +13,11 @@ const navPages = [
     },
     {
         title:'Nosotros',
-        url: '/nosotros'
+        url: '/aboutus'
     },
     {
         title: 'Contacto',
-        url: '/contacto'
+        url: '/contact'
     }];
 
     export default navPages;

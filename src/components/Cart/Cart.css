@@ -1,3 +1,4 @@
+/*Carrito*/
 .cartConteiner{
     display: flex;
     align-content: center;
@@ -29,6 +30,35 @@
     width: 250px;
     height: 250px;
 }
+.cartConteiner__item .cartContiner__item__data{
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 0.5em;
+}
+.cartConteiner__item .cartContiner__item__data .cartContiner__item__data--title{
+    font-weight: 500;
+}
+
+.cartConteiner__item .cartContiner__item__data .cartContiner__item__data--quantity button{
+    color: black;
+}
+.cartConteiner__item .cartContiner__item__data .cartContiner__item__data--delete button{
+    color: black;
+}
+.cartConteiner .cartConteiner__controls{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1em;
+}
+.cartConteiner .cartConteiner__controls button{
+    color: black;
+}
+/*Formulario*/
 form{
     display: flex;
     flex-wrap: nowrap;
