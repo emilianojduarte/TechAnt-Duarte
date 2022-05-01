@@ -10,6 +10,8 @@ import Home from './pages/HomePage';
 import NotFound from './pages/NotFoundPage';
 import ItemDetailPage from './pages/ItemDetailPage';
 import CategoryPage from './pages/CategoryPage';
+import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
 //Estilos
 import './App.css';
 //context
@@ -30,6 +32,8 @@ function App() {
               <Route path='/category' element={<CategoryPage/>}/>
               <Route path='/category/:id' element={<ItemListContainer/>}/>
               <Route path='/item/:id' element={<ItemDetailPage/>}/>
+              <Route path='/aboutus' element={<AboutUs/>}/>
+              <Route path='/contact' element={<Contact/>}/>
               <Route path='/cart' element={<Cart/>}/>
             </Routes>
             <SocialNetworks/>
