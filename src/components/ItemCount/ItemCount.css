@@ -1,0 +1,26 @@
+.mainItemDetail__details__counter{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: auto;
+    align-content: stretch;
+    justify-content: space-evenly;
+    gap: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.mainItemDetail__details__counter button{
+    color: black;
+    margin: 0.5em;
+}
+.mainItemDetail__details__counter .mainItemDetail__details__counter--btnCounter{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 1em;
+}
+.mainItemDetail__details__counter .mainItemDetail__details__counter--btnCounter button{
+    color: black;
+    font-size: 1rem;
+    font-weight: 3;
+}

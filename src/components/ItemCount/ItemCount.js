@@ -1,6 +1,8 @@
 //Componentes
 import React,{useState} from "react";
 import Button from '@mui/material/Button';
+//Estilos
+import './ItemCount.css';
 
 const ItemCount = ({stock, initial, action}) => {
     const [count, setCount] = useState(initial);
@@ -15,13 +17,19 @@ const ItemCount = ({stock, initial, action}) => {
         }
     }
     return (
-        <div>
-            <div className="btnCounter">
-            <Button onClick={countMinus}>-</Button>
-            <p>{count}</p>
-            <Button onClick={countPlus}>+</Button>
+        <div className="mainItemDetail__details__counter">
+            <div className="mainItemDetail__details__counter--btnCounter">
+                <Button onClick={countMinus}>
+                    <span>-</span>
+                </Button>
+                <p>{count}</p>
+                <Button onClick={countPlus}>
+                    <span>+</span>
+                </Button>
             </div>
-            <Button onClick={(e) => action(e, count)}>Agregar al Carrito</Button>
+            <Button onClick={(e) => action(e, count)}>
+                Agregar al Carrito
+            </Button>
         </div>
         
     )

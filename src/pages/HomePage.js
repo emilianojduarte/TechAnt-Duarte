@@ -1,7 +1,8 @@
 //Components
 import React from "react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { useMediaQuery } from "@mui/material";
+import { Button, useMediaQuery } from "@mui/material";
+import { Link } from "react-router-dom";
 //Estilos
 import '@splidejs/react-splide/css';
 import './HomePage.css';
@@ -23,7 +24,12 @@ function HomePage (){
                     }}
                 >
                     <div className="splide__float">
-                        <p>Catálogo de Productos</p>
+                        <p>Visitá nuestro catálogo de productos con lo último en tecnología</p>
+                        <p>
+                            <Button>
+                                <Link to={'/category'}>Catálogo</Link>
+                            </Button>
+                        </p>
                     </div>
                     <SplideSlide>
                         <img src="./assets/images/carrousel1-m.jpg" alt="carrousel 1"/>
@@ -54,7 +60,12 @@ function HomePage (){
                     }}
                 >
                     <div className="splide__float">
-                        <p>Catálogo de Productos</p>
+                        <p>Visitá nuestro catálogo de productos con lo último en tecnología</p>
+                        <p>
+                            <Button>
+                                <Link to={'/category'}>Catálogo</Link>
+                            </Button>
+                        </p>
                     </div>
                     <SplideSlide>
                         <img src="./assets/images/carrousel1.jpg" alt="carrousel 1"/>
@@ -74,7 +85,6 @@ function HomePage (){
                 </Splide>
             </section>
         )}
-        <h1>Bienvenidos a la tienda</h1>
         </>
     )
 }

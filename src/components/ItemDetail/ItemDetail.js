@@ -19,11 +19,7 @@ function ItemDetail ({item}){
             setProductQuantity(count);
         }
     }
-    const splitDescription = (cadenaDescripcion) => {
-        const separador = '.';
-        var arrayDeCadenas = cadenaDescripcion.split(separador);
-        return arrayDeCadenas;
-    }
+    //useEffect
     useEffect(()=>{
         if(productQuantity>0){
             setMostrarItemCount(false);
@@ -37,25 +33,35 @@ function ItemDetail ({item}){
                     <img src={`/assets/images/${item.url}`} alt="foto del producto"></img>
                 </div>
                 <div className="mainItemDetail__details">
-                    <h2>Especificaciones</h2>
+                    <h2>Detalles</h2>
                     <div className="mainItemDetail__details__text">
-                        {item.descripcion.map((oracion)=>{
+                        {item.descripcion.map((data)=>{
                             return(
                                 <div className="mainItemDetail__details__text--info" key={nanoid()}>
-                                    <span className="mainItemDetail__details__text--info--1">{oracion.dato}</span>
-                                    <span className="mainItemDetail__details__text--info--2">{oracion.detalle}</span>
+                                    <span className="mainItemDetail__details__text--info--1">{data.dato}</span>
+                                    <span className="mainItemDetail__details__text--info--2">{data.detalle}</span>
                                 </div>
                             )
                         })}
                     </div>
-                    <div className="mainItemDetail__details--price">$ {item.price}</div>
-                    {mostrarItemCount ?(
-                        <ItemCount stock={item.stock} initial={1} action={onAdd}/>
-                        ):( <Link to="/cart">
-                                <Button>Finalizar Compra</Button>
-                            </Link>
-                        )
-                    }
+                    <div className="mainItemDetail__details--price">
+                        $ {item.price}
+                    </div>
+                    <div className="mainItemDetail__details--aditional">
+                        {item.enviogratis ? ( 
+                            <p>Envio gratis incluido</p>
+                        ):(
+                            <></>
+                        )}
+                    </div>
+                        {mostrarItemCount ?(
+                            <ItemCount stock={item.stock} initial={1} action={onAdd}/>
+                            ):( 
+                                <Link to="/cart">
+                                    <Button>Finalizar Compra</Button>
+                                </Link>
+                            )
+                        }
                 </div>
         </div>
     )

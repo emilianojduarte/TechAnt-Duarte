@@ -4,6 +4,8 @@ import CategoryList from "../CategoryList/CategoryList";
 import { collection, getDocs } from "firebase/firestore";
 import database from "../../services/firebase";
 import CircularProgress from '@mui/material/CircularProgress';
+//Estilos
+import './CategoryListContainer.css';
 
 function CategoryListContainer(){
     const [loading, setLoading] = useState(true);

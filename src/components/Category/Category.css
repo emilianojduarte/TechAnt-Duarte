@@ -1,0 +1,29 @@
+.cardCategory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+    max-width: 500px;
+    padding: 0em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    transition: all 350ms ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+}
+.cardCategory:hover{
+    transform: scale(1.05);
+}
+.cardCategory__img {
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+
+.cardCategory p{
+    font-size: 2rem;
+    padding: 0.5em;
+}

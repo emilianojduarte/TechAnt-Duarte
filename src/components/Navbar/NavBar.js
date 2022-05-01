@@ -15,7 +15,7 @@ import './NavBar.css';
 
 function NavBar() {
     const {lightTheme} = useContext(ThemeContext);
-    const isMobile = useMediaQuery('(min-width:760px)');
+    const isMobile = useMediaQuery('(min-width:767px)');
     return(
         <>
         {isMobile ?(

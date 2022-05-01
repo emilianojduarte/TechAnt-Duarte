@@ -11,7 +11,7 @@ function CartWidget(){
     return(
         <div>
             <Link to={'/cart'}>
-                    <Badge badgeContent={cartCantProductos()}>
+                    <Badge id="iconoCart" badgeContent={cartCantProductos()}>
                         <ShoppingCartIcon/>
                     </Badge>
             </Link>
