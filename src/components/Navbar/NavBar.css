@@ -78,6 +78,9 @@ nav ul li div a #iconoCart svg{
     position: relative;
     top: -0.15em;
 }
+nav ul li div a #iconoCart span{
+    padding-left: 1em;
+}
 /*Usuario*/
 #iconoUser svg{
     position: relative;

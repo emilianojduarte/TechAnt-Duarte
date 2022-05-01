@@ -114,29 +114,31 @@ function Cart () {
                                         <img src={`/assets/images/${product.url}`} className="" alt="foto del producto"></img>
                                     </div>
                                     <div className='cartContiner__item__data'>
-                                        <p>{product.title}</p>
-                                        <p>Precio unitario: ${product.price}</p>
-                                        <p>
+                                        <div className='cartContiner__item__data--title'>{product.title}</div>
+                                        <div className='cartContiner__item__data--uprice'>Precio unitario: ${product.price}</div>
+                                        <div className='cartContiner__item__data--quantity'>
                                             <Button onClick={()=>{handleOneLess(product.id)}}>-</Button>
                                             Cantidad: {product.cantidad}
                                             <Button onClick={()=>{handleOneMore(product, 1)}}>+</Button>
-                                        </p>
-                                        <p>Precio por cantidad (subtotal): ${product.price*product.cantidad}</p>
-                                        <p>
+                                        </div>
+                                        <div className='cartContiner__item__data--subprice'>Subtotal: ${product.price*product.cantidad}</div>
+                                        <div className='cartContiner__item__data--delete'>
                                             <Button onClick={()=>{handleDeleteItem(product.id)}}>Eliminar</Button>
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             )
                         })}
-                        <div>
-                            <Button onClick={()=>{handleDeleteCart()}}>Vaciar carrito</Button>
-                        </div>
-                        <div>
-                            <p>Total: ${cartTotal()}</p>
-                        </div>
-                        <div>
-                            <Button onClick={()=>{setOpenModal(true)}}>Completar Compra</Button>
+                        <div className='cartConteiner__controls'>
+                            <div>
+                                <Button onClick={()=>{handleDeleteCart()}}>Vaciar carrito</Button>
+                            </div>
+                            <div>
+                                <p>TOTAL ${cartTotal()}</p>
+                            </div>
+                            <div>
+                                <Button onClick={()=>{setOpenModal(true)}}>Completar Compra</Button>
+                            </div>
                         </div>
                     </div>
                 ):(
