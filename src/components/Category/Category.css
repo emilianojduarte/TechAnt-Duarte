@@ -1,10 +1,10 @@
-.cardItem{
+.cardCategory{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0em;
-    max-width: 350px;
+    max-width: 500px;
     padding: 0em;
     margin: 0.5em;
     border-radius: 0.5em;
@@ -12,27 +12,18 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
 }
-.cardItem:hover{
+.cardCategory:hover{
     transform: scale(1.05);
 }
-.cardItem__img {
+.cardCategory__img {
     height: 100%;
     width: 100%;
-    max-width: 480px;
+    max-width: 600px;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
 }
-.cardItem--price{
-    margin-top: 00.5em;
+
+.cardCategory p{
     font-size: 2rem;
-    font-weight: 400;
-}
-.cardItem--title{
-    font-size: 1rem;
-    margin: 00.5em;
-}
-.btnCounter{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0.5em;
 }

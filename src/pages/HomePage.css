@@ -1,4 +1,19 @@
 .splide__slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+.splide__float{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    color: #0A1128;
+    background-color: #fefcfbc5;
+    padding: 1.3em;
+    border-radius: 0.6em;
+}
+.splide__float p button{
+    color: #0A1128;
+    margin-top: 1em;
 }

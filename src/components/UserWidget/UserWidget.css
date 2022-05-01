@@ -1,0 +1,27 @@
+/* Modal */
+.formUser{
+    background-color: #FEFCFB;
+    /*font-family: "Lato", sans-serif;*/
+    border-radius: 0.6em;
+}
+.formUSer *{
+    width: -webkit-fill-available;
+}
+.formUser .modal__container {
+    padding: 1em;
+    text-align: center;
+}
+.formUser .modal__container .modal__container--inputText,
+.formUSer .modal__container .modal__container--inputPassword {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Boton de login dentro del modal */
+.formUser .modal__container #btnLogin{
+    color: black;
+    width: 50%;
+}

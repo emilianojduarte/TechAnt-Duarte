@@ -5,6 +5,8 @@ import { doc, getDoc } from "firebase/firestore";
 import database from "../../services/firebase";
 import { useParams, useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+//Estilos
+import './ItemDetailContainer.css';
 
 function ItemDetailContainer(){
     //variables
@@ -34,7 +36,7 @@ function ItemDetailContainer(){
     },[id])
     return(
         <div className="mainItemDetailContainer">
-            <h2>{item.title}</h2>
+            <h1>{item.title}</h1>
             {loading?(
                 <h2><CircularProgress sx={{ color: 'grey.800' }}/></h2>
             ):(

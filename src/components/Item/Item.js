@@ -27,16 +27,19 @@ function Item({item}) {
     return(
         <div className="cardItem">
             <Link to={`/item/${id}`}>
-            <img src={`/assets/images/${url}`} className="cardItem__img" alt="foto del producto"></img>
+                <img src={`/assets/images/${url}`} className="cardItem__img" alt="foto del producto"></img>
             </Link>
-            <p>Precio : $ {price}</p>
-            <p>{title}</p>
+            <p className='cardItem--price'>
+                $ {price}
+            </p>
+            <p className='cardItem--title'>{title}</p>
             {mostrarItemCount ?(
                 <ItemCount stock={stock} initial={1} action={onAdd}/>
-                ):( <Link to="/cart">
+                ):( 
+                    <Link to="/cart">
                         <Button>Finalizar Compra</Button>
                     </Link>
-                    )
+                )
             }
         </div>
     )
