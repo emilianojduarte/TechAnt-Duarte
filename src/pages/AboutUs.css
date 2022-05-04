@@ -1,0 +1,22 @@
+.sectionAboutUs__div__info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1em;
+}
+.sectionAboutUs__div__info--text{
+    padding: 1.5em;
+
+}
+.sectionAboutUs__div__info--text p{
+    /*line-height: 1.5em;*/
+}
+.sectionAboutUs__div__info--img{
+    width: 100%;
+    max-width: 50%;
+}
+.sectionAboutUs__div__info--img img{
+    width: 100%;
+    height: auto;
+}
