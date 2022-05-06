@@ -9,14 +9,20 @@
     padding: 1.5em;
 
 }
+.sectionAboutUs__div__info--text{
+    max-width: 600px;
+    line-height: 1em;
+}
 .sectionAboutUs__div__info--text p{
-    /*line-height: 1.5em;*/
+    font-size: 1.2rem;
+    padding: 1em;
 }
 .sectionAboutUs__div__info--img{
     width: 100%;
-    max-width: 50%;
+    max-width: 35%;
 }
 .sectionAboutUs__div__info--img img{
     width: 100%;
     height: auto;
+    border-radius: 2em;
 }
