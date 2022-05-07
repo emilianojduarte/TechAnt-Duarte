@@ -2,15 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:center;
     gap: 1em;
+}
+.sectionAboutUs__div #aboutus-div-2{
+    flex-direction:row-reverse;
 }
 .sectionAboutUs__div__info--text{
     padding: 1.5em;
 
 }
 .sectionAboutUs__div__info--text{
-    max-width: 600px;
+    max-width: 500px;
     line-height: 1em;
 }
 .sectionAboutUs__div__info--text p{
@@ -18,8 +21,7 @@
     padding: 1em;
 }
 .sectionAboutUs__div__info--img{
-    width: 100%;
-    max-width: 35%;
+    width: 400px;
 }
 .sectionAboutUs__div__info--img img{
     width: 100%;

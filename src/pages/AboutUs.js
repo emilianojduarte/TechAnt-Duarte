@@ -19,12 +19,20 @@ function AboutUs () {
                             Si estas buscando algo nuevo, estás en el lugar correcto.
                             Nos esforzamos en mantenernos laboriosos e innovadores, ofrenciendo a nuestros clientes lo que ellos quieren, colocando sus deseas a la cabeza de nuestra lista de prioridades.
                         </p>
+                    </div>
+                    <div className="sectionAboutUs__div__info--img">
+                        <img src="/assets/images/aboutus-img.jpg" alt="foto mostrando tecnología sobre escritorio"/>
+                    </div>
+                </div>
+                <h2>Nuestro Objetivo</h2>
+                <div className="sectionAboutUs__div__info" id="aboutus-div-2">
+                    <div className="sectionAboutUs__div__info--text">
                         <p>
                             Nuestros clientes son nuestra mayor prioridad, y a través de nuestros productos, trabajamos duramente en formar una relación a largo plazo con ellos.
                         </p>
                     </div>
                     <div className="sectionAboutUs__div__info--img">
-                        <img src="/assets/images/aboutus-img.jpg" />
+                        <img src="/assets/images/aboutus-img2.jpg" alt="foto mostrando un celular"/>
                     </div>
                 </div>
             </div>
