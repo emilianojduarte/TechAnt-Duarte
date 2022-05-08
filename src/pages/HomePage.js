@@ -8,8 +8,10 @@ import '@splidejs/react-splide/css';
 import './HomePage.css';
 
 function HomePage (){
+//variables
     const breakPointScreen = useMediaQuery('(max-width:760px)');
     const portraitScreen = useMediaQuery('(orientation: portrait)');
+//return
     return(
         <>
         {breakPointScreen&&portraitScreen ?(

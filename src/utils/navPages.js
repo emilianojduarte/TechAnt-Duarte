@@ -18,6 +18,7 @@ const navPages = [
     {
         title: 'Contacto',
         url: '/contact'
-    }];
+    }
+];
 
-    export default navPages;
+export default navPages;

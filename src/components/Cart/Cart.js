@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { nanoid } from 'nanoid';
 import ModalBase from '../Modal/ModalBase';
+import { CircularProgress } from '@mui/material';
 //Context
 import CartContext from '../../context/CartContext';
 //Firebase
@@ -12,9 +13,8 @@ import { addDoc, collection } from 'firebase/firestore';
 //Estilos
 import './Cart.css';
 
-
 function Cart () {
-//VARIABLES
+//Variables
     const {cartProducts, cartTotal, restarUno, addProductToCart, removeItem, cleanCart} = useContext(CartContext);
     const navigate = useNavigate();
     const [hayProductos, setHayProductos] = useState(false);
@@ -47,7 +47,7 @@ function Cart () {
             total: cartTotal()
         }
     );
-//FUNCIONES
+//Funciones
     const handleOneLess = (id) =>{
         restarUno(id);
         setTotalDelCart(cartTotal);
@@ -199,7 +199,12 @@ function Cart () {
                             </form>
                     </div>
                 ):(
-                    <h2>Procesando solicitud...</h2>
+                    <>
+                        <h2>Procesando solicitud...</h2>
+                        <p>
+                            <CircularProgress sx={{ color: 'grey.800' }}/>
+                        </p>
+                    </>
                 )
                 )}
             </ModalBase>

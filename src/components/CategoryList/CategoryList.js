@@ -4,7 +4,7 @@ import Category from '../Category/Category';
 import { nanoid } from 'nanoid';
 
 const CategoryList = ({categories}) =>{
-    //return JSX
+//return
     return(
         <div className="cardsConteiner">
             {categories.map((category)=>{

@@ -1,3 +1,4 @@
+/* Redes Sociales */
 .redes {
     display: flex;
     flex-direction: row;
@@ -23,7 +24,7 @@
     bottom: -1px;
     right: 7px;
 }
-/*Media query*/
+/* Media query */
 @media (max-width: 700px) {
     .redes {
         display: flex;

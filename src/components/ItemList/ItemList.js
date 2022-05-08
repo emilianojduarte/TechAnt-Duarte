@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import './ItemList.css';
 
 const ItemList = ({productosFiltrados}) =>{
+//return
     return(
         <div className="cardsConteiner">
             {productosFiltrados.map((product)=>{

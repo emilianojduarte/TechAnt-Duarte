@@ -5,7 +5,9 @@ import Button from '@mui/material/Button';
 import './ItemCount.css';
 
 const ItemCount = ({stock, initial, action}) => {
+//variables
     const [count, setCount] = useState(initial);
+//funciones
     const countPlus = () =>{
         if(count < stock){
             setCount(count + 1)
@@ -16,6 +18,7 @@ const ItemCount = ({stock, initial, action}) => {
             setCount(count - 1)
         }
     }
+//return
     return (
         <div className="mainItemDetail__details__counter">
             <div className="mainItemDetail__details__counter--btnCounter">

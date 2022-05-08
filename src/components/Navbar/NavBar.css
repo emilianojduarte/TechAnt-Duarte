@@ -1,4 +1,4 @@
-/* -------------- Header y NavBar ---------------------*/
+/* Header y NavBar */
 header{
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +89,7 @@ nav ul li div a #iconoCart span{
 #iconoUser:hover{
     cursor: pointer;
 }
-/*---Menu desplegable---*/
+/* Menu desplegable */
 .nav-item {
     padding: 0.5em;
     display: inline;
@@ -134,6 +134,7 @@ nav .nav-items{
     padding: 1em;
     text-align: center;
 }
+/* Media querys */
 @media (max-width:820px) {
     .brandcontainer{
         width: 50px;

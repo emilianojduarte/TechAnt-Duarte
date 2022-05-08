@@ -83,3 +83,8 @@ form div input{
     margin: 1em;
     gap: 1em;
 }
+.postMessage p a button{
+    color: black;
+    font-weight: bold;
+    background-color: rgb(203, 201, 201);
+}

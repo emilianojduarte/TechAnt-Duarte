@@ -9,67 +9,67 @@ import './UserWidget.css';
 
 function UserWidget () {
 //variables
-const [user, setUser] = useState();
-const [logueado, setLogueado] = useState(false);
-const [openModal, setOpenModal] = useState(false);
-const [loading, setLoading] = useState(false);
-const [errorUser, setErrorUser] = useState(false);
-const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-})
-//funciones
-const isLoged = () => {
-    if (localStorage.getItem("token")) {
-        setLogueado(true);
-        var nombre = localStorage.getItem("email").split("@")[0];
-        setUser(nombre);
-    }
-}
-const handleChange = (e) => {
-    const {name, value} = e.target;
-    setFormData({
-        ...formData,
-        [name]: value
+    const [user, setUser] = useState();
+    const [logueado, setLogueado] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [errorUser, setErrorUser] = useState(false);
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
     })
-}
-const enviarDatos = async (url = "", data = {}) => {
-    setLoading(true);
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-    },
-        body: JSON.stringify(data),
-    });
-    return response.json();
-};
-const handleLogIn = async (e) =>{
-    e.preventDefault();
-    const resultPetition = await enviarDatos("https://reqres.in/api/login", formData);
-    setLoading(false);
-    if (!!resultPetition.token) {
-        setLogueado(true)
-        localStorage.setItem("token", resultPetition.token);
-        localStorage.setItem("email", formData.email);
-        //Las 2 lineas siguientes son para que luego de loguearme correctamente
-        //no requiera refrescar la página para que se me actualice el nombre
-        var nombre = localStorage.getItem("email").split("@")[0];
-        setUser(nombre);
-        setOpenModal(false)
-    } else {
-            setErrorUser(true)
+//funciones
+    const isLoged = () => {
+        if (localStorage.getItem("token")) {
+            setLogueado(true);
+            var nombre = localStorage.getItem("email").split("@")[0];
+            setUser(nombre);
         }
-}
-const handleLogOff = () => {
-    localStorage.clear();
-    setLogueado(false);
-    setOpenModal(false);
-}
+    }
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+    const enviarDatos = async (url = "", data = {}) => {
+        setLoading(true);
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+        },
+            body: JSON.stringify(data),
+        });
+        return response.json();
+    };
+    const handleLogIn = async (e) =>{
+        e.preventDefault();
+        const resultPetition = await enviarDatos("https://reqres.in/api/login", formData);
+        setLoading(false);
+        if (!!resultPetition.token) {
+            setLogueado(true)
+            localStorage.setItem("token", resultPetition.token);
+            localStorage.setItem("email", formData.email);
+            //Las 2 lineas siguientes son para que luego de loguearme correctamente
+            //no requiera refrescar la página para que se me actualice el nombre
+            var nombre = localStorage.getItem("email").split("@")[0];
+            setUser(nombre);
+            setOpenModal(false)
+        } else {
+                setErrorUser(true)
+            }
+    }
+    const handleLogOff = () => {
+        localStorage.clear();
+        setLogueado(false);
+        setOpenModal(false);
+    }
 //useEffect
-useEffect(()=>{
-    isLoged();
-},[])
+    useEffect(()=>{
+        isLoged();
+    },[])
 //return
     return(
         <>

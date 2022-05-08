@@ -9,13 +9,14 @@ import database from "../../services/firebase";
 //Estilos
 import './ItemListContainer.css';
 
-function ItemListContainer(){
+function ItemListContainer () {
+//variables
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
     const [title, setTitle] = useState('Cadena vacia');
     const navigate = useNavigate();
-//Funciones
+//funciones
     const getProducts = async() => {
         const consulta = ()=> {
             var respuesta;

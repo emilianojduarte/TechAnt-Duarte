@@ -1,3 +1,4 @@
+/* Contacto */
 #sectionMainContact{
     width: 100%;
     padding: 2em;
@@ -16,8 +17,7 @@
 #sectionMainContact .contacto div div .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
     color: black;
 }
-
-/*Boton*/
+/* Boton */
 #sectionMainContact .contacto .contacto_BotonEnviar button{
     color: black;
     font-weight: bold;

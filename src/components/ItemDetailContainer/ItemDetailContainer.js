@@ -1,20 +1,21 @@
 //Componentes
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { doc, getDoc } from "firebase/firestore";
-import database from "../../services/firebase";
 import { useParams, useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+//Firebase
+import { doc, getDoc } from "firebase/firestore";
+import database from "../../services/firebase";
 //Estilos
 import './ItemDetailContainer.css';
 
 function ItemDetailContainer(){
-    //variables
+//variables
     const { id } = useParams();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [item, setItem] = useState({});
-    //Promesa para obtener los productos
+//funciones
     const getProducts = async() => {
         const docRef = doc(database, 'Productos', id);
         const docSnap = await getDoc(docRef);
@@ -23,17 +24,16 @@ function ItemDetailContainer(){
             item.id = docSnap.id;
             setItem(item);
         }else{
-             //si no existe el producto, deriva al error 404
             navigate('/404');
         }
     }
-    //Efecto de montaje para obtener obtener los productos y luego encontrar
-    //el producto correcto con un find
+//useeffect
     useEffect(()=>{
         getProducts().then(()=>{
             setLoading(false);
         })
     },[id])
+//return
     return(
         <div className="mainItemDetailContainer">
             <h1>{item.title}</h1>

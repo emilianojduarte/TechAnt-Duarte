@@ -7,7 +7,9 @@ import CartContext from "../../context/CartContext";
 
 
 function CartWidget(){
+//variables
     const {cartCantProductos} = useContext(CartContext);
+//return
     return(
         <div>
             <Link to={'/cart'}>

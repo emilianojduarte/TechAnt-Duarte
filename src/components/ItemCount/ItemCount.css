@@ -1,3 +1,4 @@
+/* Item Count*/
 .mainItemDetail__details__counter{
     display: flex;
     flex-wrap: nowrap;
@@ -12,6 +13,7 @@
 .mainItemDetail__details__counter button{
     color: black;
     margin: 0.5em;
+    background-color: rgba(236, 236, 236, 0.324);
 }
 .mainItemDetail__details__counter .mainItemDetail__details__counter--btnCounter{
     display: flex;

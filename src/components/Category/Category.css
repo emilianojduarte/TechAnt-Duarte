@@ -1,3 +1,4 @@
+/* Tarjetas de Categrías */
 .cardCategory{
     display: flex;
     flex-direction: column;
@@ -22,7 +23,6 @@
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
 }
-
 .cardCategory p{
     font-size: 2rem;
     padding: 0.5em;

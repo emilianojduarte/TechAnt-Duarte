@@ -8,22 +8,25 @@ import { Button } from '@mui/material';
 import './Item.css';
 
 function Item({item}) {
+//variables
     const {url, price, stock, title, id} = item;
     const [productQuantity, setProductQuantity] = useState(0);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
     const {addProductToCart} = useContext(CartContext);
-    
+//funciones
     const onAdd = (e, count) => {
         if(!!e & productQuantity<1){
             setProductQuantity(count);
         }
     }
+//useeffect
     useEffect(()=>{
         if(productQuantity>0){
             setMostrarItemCount(false);
             addProductToCart(item, productQuantity);
         }
-    },[productQuantity]) 
+    },[productQuantity])
+//return
     return(
         <div className="cardItem">
             <Link to={`/item/${id}`}>

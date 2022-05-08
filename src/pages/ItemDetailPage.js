@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 
 
 const ItemDetailPage = () =>{
+//variables
     const {id} = useParams();
+//return
     return(
         <ItemDetailContainer id={id}/>
     )

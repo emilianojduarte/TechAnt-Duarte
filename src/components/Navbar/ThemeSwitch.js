@@ -1,3 +1,4 @@
+//Componentes
 import { useContext } from "react";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -52,7 +53,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const ThemeSwitch = () => {
+//varaibles
     const {handleTheme} = useContext(ThemeContext);
+//return
     return (
         <FormControlLabel
             control={<MaterialUISwitch sx={{ m: 1 }} onChange={handleTheme} />}

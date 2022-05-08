@@ -10,7 +10,7 @@ import database from '../services/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 //Estilos
 import './Contact.css';
-//yup
+//Yup
 const validationSchema = yup.object(
     {
     name: yup
@@ -59,7 +59,6 @@ function Contact () {
         setLoadingContact(true);
         const orderFirebase = collection(database, 'ConsultasYReclamos');
         const contactDoc = await addDoc(orderFirebase, prevContact);
-        console.log("consulta generada: ", contactDoc.id);
         setContactId(contactDoc.id);
         setLoadingContact(false);
     }
@@ -69,10 +68,12 @@ function Contact () {
             <h1 id="titleContact">Formulario de Contacto</h1>
             <section className="" id="sectionMainContact">
                 {loadingContact?(
-                    <h2>
-                        Procesando solicitud...
-                        <CircularProgress sx={{ color: 'grey.800' }}/>
-                    </h2>
+                    <>
+                        <h2>Procesando solicitud...</h2>
+                        <p>
+                            <CircularProgress sx={{ color: 'grey.800' }}/>
+                        </p>
+                    </>
                 ):(
                     contactId?(
                         <div className='postMessage'>

@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import './Category.css';
 
 function Category({data}) {
+//variables
     const {id, title, image} = data;
+//return
     return(
         <div className="cardCategory">
             <Link to={`/category/${id}`}>

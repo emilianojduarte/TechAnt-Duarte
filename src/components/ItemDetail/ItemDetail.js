@@ -9,24 +9,24 @@ import { nanoid } from 'nanoid';
 import './ItemDetail.css';
 
 function ItemDetail ({item}){
-    //variables
+//variables
     const [productQuantity, setProductQuantity] = useState(0);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
     const {addProductToCart} = useContext(CartContext);
-    //funciones
+//funciones
     const onAdd = (e, count) => {
         if(!!e & productQuantity<1){
             setProductQuantity(count);
         }
     }
-    //useEffect
+//useEffect
     useEffect(()=>{
         if(productQuantity>0){
             setMostrarItemCount(false);
             addProductToCart(item, productQuantity);
         }
     },[productQuantity])
-    //return
+//return
     return(
         <div className="mainItemDetail">
                 <div className="mainItemDetail__img">

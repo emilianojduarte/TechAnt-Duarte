@@ -15,3 +15,5 @@ Se utilizó:
  - Firebase
  - Nanoid
  - React Router
+ - Formik
+ - Yup

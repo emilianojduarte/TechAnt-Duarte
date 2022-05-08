@@ -8,8 +8,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 import './CategoryListContainer.css';
 
 function CategoryListContainer(){
+//variables
     const [loading, setLoading] = useState(true);
     const [categories, setCategories] = useState([]);
+//funciones
     const getCategories = async() => {
         const categoriesCollection = collection(database, "Categorias")
         const categoriesSnapshot = await getDocs(categoriesCollection)
@@ -21,13 +23,14 @@ function CategoryListContainer(){
         )
         return categoriesList;
     }
-    //Efecto de montaje para obteneter el listado de categorias
+//useEffect
     useEffect(()=>{
         getCategories().then((resultado)=>{
             setLoading(false);
             setCategories(resultado)
         })
     },[])
+//return
     return(
         <div className="mainItemListContainer">
             <h1>Categorías</h1>

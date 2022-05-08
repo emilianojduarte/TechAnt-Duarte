@@ -6,16 +6,17 @@ import UserWidget from "../UserWidget/UserWidget";
 import navPages from "../../utils/navPages";
 import { nanoid } from 'nanoid';
 import ThemeSwitch from "./ThemeSwitch";
-import ThemeContext from "../../context/ThemeContext";
 import { useMediaQuery } from "@mui/material";
+//Context
+import ThemeContext from "../../context/ThemeContext";
 //Estilos
 import './NavBar.css';
 
-
-
 function NavBar() {
+//variables
     const {lightTheme} = useContext(ThemeContext);
     const isMobile = useMediaQuery('(min-width:767px)');
+//return
     return(
         <>
         {isMobile ?(
