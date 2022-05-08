@@ -19,3 +19,8 @@ Se utilizó:
  - React Router: para la navegación
  - Formik y Yup: para el manejo de formularios
  - Reqres: para el login del usuario
+
+#### Convenciones
+
+ - PascalCase: para los componentes
+ - camelCase: para las funciones, variables y clases
