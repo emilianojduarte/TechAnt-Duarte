@@ -1,19 +1,21 @@
 ## Tienda en React JS
 
-Ecommerce realizado en React JS para CoderHouse, comision 31120
+Ecommerce realizado en React JS para CoderHouse, comisión 31120
 
-
-### Autor
+#### Autor
 Emiliano Duarte
 
+#### Aplicación
+La aplicación es un ecommerce con conexión a Firebase para obtener los productos y recibir las compras y consultas.
 
-### Dependencias
+
+#### Dependencias
 Se utilizó:
 
  - React JS
  - Material UI
- - Firebase
- - Nanoid
- - React Router
- - Formik
- - Yup
+ - Firebase: para la base de productos en la nube, y recepción de formularios.
+ - Nanoid: para la generación de IDs únicos en listados
+ - React Router: para la navegación
+ - Formik y Yup: para el manejo de formularios
+ - Reqres: para el login del usuario
