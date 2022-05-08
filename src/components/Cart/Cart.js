@@ -170,6 +170,8 @@ function Cart () {
                                     <input type="text" name='name' placeholder='Ingrese su nombre o nombres'
                                         onChange={handleChange}
                                         value={formData.name}
+                                        maxLength='32'
+                                        minLength={3}
                                     />
                                 </div>
                                 <div>
@@ -177,6 +179,7 @@ function Cart () {
                                     <input type="text" name='surname' placeholder='Ingrese su apellido o apellidos'
                                         onChange={handleChange}
                                         value={formData.surname}
+                                        maxLength='32'
                                     />
                                 </div>
                                 <div>
@@ -188,9 +191,11 @@ function Cart () {
                                 </div>
                                 <div>
                                     <label>Email</label>
-                                    <input type="mail" name='email' placeholder='Ingrese la dirección  de correo'
+                                    <input type="email" name='email' placeholder='Ingrese la dirección  de correo'
                                         onChange={handleChange}
                                         value={formData.email}
+                                        maxLength='32'
+                                        minLength={3}
                                     />
                                 </div>
                                 <div>
