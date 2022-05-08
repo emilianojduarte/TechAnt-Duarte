@@ -180,6 +180,7 @@ function Cart () {
                                         onChange={handleChange}
                                         value={formData.surname}
                                         maxLength='32'
+                                        minLength={3}
                                     />
                                 </div>
                                 <div>
