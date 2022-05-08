@@ -15,7 +15,6 @@ import './Cart.css';
 
 function Cart () {
 //VARIABLES
-    //Contexto
     const {cartProducts, cartTotal, restarUno, addProductToCart, removeItem, cleanCart} = useContext(CartContext);
     const navigate = useNavigate();
     const [hayProductos, setHayProductos] = useState(false);
@@ -90,7 +89,6 @@ function Cart () {
         setLoadingOrder(false);
         const orderFirebase = collection(database, 'Ordenes');
         const orderDoc = await addDoc(orderFirebase, prevOrder);
-        console.log("orden generada: ", orderDoc.id)
         setFinishedOrder(orderDoc.id)
         setLoadingOrder(true);
     }
@@ -102,6 +100,7 @@ function Cart () {
             setHayProductos(false)
         }
     },[totalDelCart])
+    //Return
     return(
         <div>
             <h1>Carrito de compras</h1>
@@ -165,41 +164,40 @@ function Cart () {
                 ):(loadingOrder?(
                     <div>
                         <h2>Formulario de Envio</h2>
-                        <form onSubmit={handleSubmit}>
-                            <div>
-                                <label>Nombre/s</label>
-                                <input type="text" name='name' placeholder='Ingrese su nombre o nombres'
-                                    onChange={handleChange}
-                                    value={formData.name}
-                                />
-                            </div>
-                            <div>
-                                <label>Apellido/s</label>
-                                <input type="text" name='surname' placeholder='Ingrese su apellido o apellidos'
-                                    onChange={handleChange}
-                                    value={formData.surname}
-                                />
-                            </div>
-                            <div>
-                                <label>Teléfono</label>
-                                <input type="number" name='phone' placeholder='Ingrese su teléfono de contacto'
-                                    onChange={handleChange}
-                                    value={formData.phone}
-                                />
-                            </div>
-                            <div>
-                                <label>Email</label>
-                                <input type="mail" name='email' placeholder='Ingrese la dirección  de correo'
-                                    onChange={handleChange}
-                                    value={formData.email}
-                                />
-                            </div>
-                            <div>
-                                <Button type="submit">Enviar</Button>
-                            </div>
-                        </form>
+                            <form onSubmit={handleSubmit}>
+                                <div>
+                                    <label>Nombre/s</label>
+                                    <input type="text" name='name' placeholder='Ingrese su nombre o nombres'
+                                        onChange={handleChange}
+                                        value={formData.name}
+                                    />
+                                </div>
+                                <div>
+                                    <label>Apellido/s</label>
+                                    <input type="text" name='surname' placeholder='Ingrese su apellido o apellidos'
+                                        onChange={handleChange}
+                                        value={formData.surname}
+                                    />
+                                </div>
+                                <div>
+                                    <label>Teléfono</label>
+                                    <input type="number" name='phone' placeholder='Ingrese su teléfono de contacto'
+                                        onChange={handleChange}
+                                        value={formData.phone}
+                                    />
+                                </div>
+                                <div>
+                                    <label>Email</label>
+                                    <input type="mail" name='email' placeholder='Ingrese la dirección  de correo'
+                                        onChange={handleChange}
+                                        value={formData.email}
+                                    />
+                                </div>
+                                <div>
+                                    <Button type="submit">Enviar</Button>
+                                </div>
+                            </form>
                     </div>
-                    
                 ):(
                     <h2>Procesando solicitud...</h2>
                 )

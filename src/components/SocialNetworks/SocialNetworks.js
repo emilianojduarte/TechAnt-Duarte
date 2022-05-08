@@ -42,4 +42,4 @@ function SocialNetworks () {
     )
 }
 
-export default SocialNetworks
+export default SocialNetworks;
