@@ -1,0 +1,32 @@
+#sectionMainContact{
+    width: 100%;
+    padding: 2em;
+}
+#sectionMainContact .contacto{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+}
+#sectionMainContact .contacto div div fieldset{
+    border-color: black;
+}
+#sectionMainContact .contacto div div .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+    color: black;
+}
+
+/*Boton*/
+#sectionMainContact .contacto .contacto_BotonEnviar button{
+    color: black;
+    font-weight: bold;
+    background-color: rgb(203, 201, 201);
+    width: 30%;
+}
+#sectionMainContact .contacto .contacto_BotonEnviar{
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
