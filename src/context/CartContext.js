@@ -6,7 +6,7 @@ const CartContext = createContext();
 const CartProvider = ({children}) =>{
 //variables
     const [cartProducts, setCartProducts] = useState([]);
-    const [cuantosProductos, setCuantosProductos] = useState();
+    const [cuantosProductos, setCuantosProductos] = useState(0);
 //funciones
     const addProductToCart = (product, productQuantity) =>{
         const indiceEncontrado = cartProducts.findIndex((producto)=>{
